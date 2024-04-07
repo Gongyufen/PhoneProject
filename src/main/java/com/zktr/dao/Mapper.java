@@ -1,14 +1,15 @@
 package com.zktr.dao;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
- * ½«ResultSet×ª»»³ÉListµÄ½Ó¿Ú
+ * ï¿½ï¿½ResultSet×ªï¿½ï¿½ï¿½ï¿½Listï¿½Ä½Ó¿ï¿½
  * @author LiZanhong
  *
  * @param <E>
  */
 public interface Mapper<E> {
-	public List<E> map(ResultSet rs);
+	public List<E> map(ResultSet rs)  throws SQLException;
 }
