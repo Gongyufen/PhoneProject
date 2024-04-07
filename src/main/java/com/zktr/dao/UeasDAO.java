@@ -27,7 +27,7 @@ public class UeasDAO extends BaseDAO{
 					);
 					list.add(ueas);
 				}
-				if(list.get(1)!=null) {
+				if(list!=null) {
 					return list;
 				}else {
 					return null;
@@ -35,6 +35,34 @@ public class UeasDAO extends BaseDAO{
 				
 			}
 		},z_uname,z_pass);
+	}
+	//根据id查询
+	public List<Ueas> select(int id) {
+		String sql="select * from z_ueas where z_uid=?";
+		return query(sql,new Mapper(){
+			@Override
+			public List<Ueas> map(ResultSet rs) throws SQLException {
+				List<Ueas> list=new ArrayList();
+				if (rs.next()) {
+					Ueas ueas=new Ueas(
+							rs.getInt("z_uid"),
+							rs.getString("z_uname"),
+							rs.getString("z_pass"),
+							rs.getString("z_esx"),
+							rs.getString("z_phone"),
+							rs.getString("z_avatar"),
+							rs.getInt("z_state")
+					);
+					list.add(ueas);
+				}
+				if(list!=null) {
+					return list;
+				}else {
+					return null;
+				}
+				
+			}
+		},id);
 	}
 	public void insert(String z_uname,String z_pass,String z_esx,String z_phone) {
 		String sql="insert into z_ueas values(null,?,?,?,?,null,1)";
@@ -61,10 +89,15 @@ public class UeasDAO extends BaseDAO{
 				}
 				return list;
 			}
-		},z_uname)!=null) {
-			return true;
-		}else {
+		},z_uname).size()!=0) {
 			return false;
+		}else {
+			return true;
 		}
+	}
+	//修改用户名
+	public void xgName(String name,int id) {
+		String sql="update z_ueas set z_uname=? where z_uid=?";
+		execute(sql,name,id);
 	}
 }

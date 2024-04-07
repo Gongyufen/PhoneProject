@@ -83,13 +83,13 @@
 <body>
     <div class="form-container">
         <h2>登录</h2>${pd }
-        <form class="login-form">
-            <input type="text" placeholder="用户名" required>
-            <input type="password" placeholder="密码" required>
+        <form class="login-form" action="DengluServlet" method="post">
+            <input type="text" placeholder="用户名" name="name" required>
+            <input type="password" placeholder="密码" name="pas" required>
             <button type="submit">登录</button>
         </form>
 		
-        <form class="register-form" action="Zhucservlet" method="post">
+        <form class="register-form" action="Zhucservlet"  method="post">
             <input type="text" placeholder="用户名" name="name" >
             <input type="text" placeholder="手机号" name="phone" >
             <input type="password" placeholder="密码" name="pas" >
