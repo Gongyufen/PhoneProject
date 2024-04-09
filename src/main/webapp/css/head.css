@@ -1,0 +1,50 @@
+*{
+	margin: 0 auto;
+	padding: 0;
+}
+#head{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	overflow: hidden;
+	padding: 0px 50px;
+	height: 50px;
+	border-bottom: 2px black solid;
+	background-color: #e1e1e1;
+	line-height: 50px;
+}
+#head a{
+	color: black;
+	text-decoration: none;
+}
+#head-left{
+	float: left;
+}
+ul{
+	list-style: none;
+}
+#head ul{
+	height: 100%;
+	display: inline-block;
+}
+#head-left-ul #img{
+	margin-top: 10px;
+	width: 32px;
+	height: 32px;
+	background: url("img/tou.png");
+}
+#head-left-ul li{
+	margin-right: 30px;
+	float: left;
+}
+#head-right{
+	float: right;
+	width: 560px;
+}
+#head-right-ul li{
+	margin-left: 30px;
+	float: left;
+}
+#head a:hover{
+	color:  #a1a1a1;
+}
