@@ -18,8 +18,7 @@
 				</div>
 				<div id="head-right">
 					<ul id="head-right-ul">
-						<li><a href="">请登录</a></li>
-						<li><a href="">注册</a></li>
+						<li><a href="">请登录或注册</a></li>
 						<li>|</li>
 						<li><a href="">我的订单</a></li>
 						<li>|</li>
