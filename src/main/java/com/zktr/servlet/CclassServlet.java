@@ -8,18 +8,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.zktr.dao.CclassDAO;
+import com.zktr.dao.ModelDAO;
+import com.zktr.dao.ProductDAO;
 import com.zktr.entity.Cclass;
 
 /**
  * Servlet implementation class CclassServlet
  */
-@WebServlet(urlPatterns = "/12/denglu")
+@WebServlet(urlPatterns = "/webapp/shouye")
 public class CclassServlet extends HttpServlet {
 	private CclassDAO cclass = new CclassDAO();
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		cclass.query();
+	private ModelDAO model = new ModelDAO();
+	private ProductDAO product = new ProductDAO();
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("cclass", cclass.query());
-		request.getRequestDispatcher("denglu.jsp").forward(request, response);
+		request.setAttribute("product", product.xinxi());
+		for(int i=0;i<cclass.query().size();i++) {
+			request.setAttribute("model"+i, model.query(cclass.query().get(i).getCid()));
+		}
+		request.getRequestDispatcher("/view/shouye.jsp").forward(request, response);
 	}
 
 }

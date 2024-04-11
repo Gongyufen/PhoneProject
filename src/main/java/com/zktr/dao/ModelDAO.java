@@ -16,8 +16,8 @@ import com.zktr.entity.Model;
 
 public class ModelDAO extends BaseDAO{
 	//查询型号
-	public List<Model> query(){
-		String sql = "select * from c_model";
+	public List<Model> query(int id){
+		String sql = "select * from c_model where c_cid=?";
 		return this.query(sql, new Mapper<Model>() {
 			@Override
 			public List<Model> map(ResultSet rs) throws SQLException  {
@@ -28,6 +28,6 @@ public class ModelDAO extends BaseDAO{
 				}
 				return list;
 			}
-		});
+		},id);
 	}	
 }
