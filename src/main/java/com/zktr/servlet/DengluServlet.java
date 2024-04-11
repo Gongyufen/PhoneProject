@@ -28,6 +28,7 @@ public class DengluServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		if (usersdao.select(name, pas).size()!=0) {
 			session.setAttribute("list",usersdao.select(name,pas));
+			session.setAttribute("id",usersdao.select(name,pas).get(0).getZ_uid());
 		request.getRequestDispatcher("grzx/Personal Center Body.jsp").forward(request, response);
 		}else {
 			request.setAttribute("pd","登陆失败");

@@ -1,0 +1,57 @@
+@charset "UTF-8";
+#body{
+	width: 78%;
+	background: white;
+	padding: 50px 50px;
+	overflow: hidden;
+}
+#shdz{
+	margin-bottom: 30px;
+}
+#name{
+	margin-right: 130px;
+}
+input{
+	width: 230px;
+	margin-bottom: 30px;
+	padding: 10px 20px;
+	outline:none;
+}
+#xxdiz{
+	width: 500px;
+}
+#sbox{
+	display: inline-block;
+}
+#cbox{
+	margin-left: 100px;
+	display: none;
+}
+.select{
+	width: 302px;
+	margin-bottom: 30px;
+	padding: 10px 20px;
+	border: 1px black solid;
+}
+
+select{
+	border: none;
+	outline:none;
+	width: 200px;
+	text-align: center;
+}
+#ls table{
+	width: 100%;
+	text-align: center;
+}
+#ls table th{
+	background-color: #f1f1f1;
+	padding: 10px 0;
+	color: #b1b1b1;
+}
+p{
+	font-size: 24px;
+	height: 35px;
+	text-align: center;
+	margin-bottom: 20px;
+}

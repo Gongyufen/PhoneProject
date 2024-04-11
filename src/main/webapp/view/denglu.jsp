@@ -8,6 +8,7 @@
     <title>登录/注册</title>
 	<script src="../jquery-3.5.1.min.js"></script>
 	<script>
+	
 		$(function(){
 			$("#qh").click(function(){
 				if ($(".login-form").css("display") === 'block') {
@@ -67,6 +68,7 @@
 		.cbox{
 			width: 20px;
 		}
+		
         .login-form {
             display: block;
         }
@@ -90,13 +92,30 @@
         </form>
 		
         <form class="register-form" action="Zhucservlet"  method="post">
-            <input type="text" placeholder="用户名" name="name" >
-            <input type="text" placeholder="手机号" name="phone" >
+            <input type="text" placeholder="用户名" name="name" id="name" >
+            <input type="text" placeholder="手机号" name="phone" id="dhtxt" >
             <input type="password" placeholder="密码" name="pas" >
             你的性别：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" value="男" name="sex" class="cbox">男&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" value="女" class="cbox" name="sex">女
-            <button type="submit">注册</button>
+            <button type="submit" id="">注册</button>
+            <script type="text/javascript">
+            	$(function() {
+            		$("#zc").click(function() {
+						if($("#zc").val()==""&&$("#zc").val().length<8){
+							alert("请输入最少8位数的密码");
+							return false;
+						}
+						if($("#dhtxt").val().length!=11){
+							alert("请输入11位的手机号");
+							return false;
+						}
+						if($("#name").val()==""){
+							alert("用户名不能为空")；
+							return false;
+						}
+					})
+				})
+            </script>
         </form>
-
         <div class="toggle-form">
             <a href="#" id="qh">没有账号？立即注册</a>
         </div>

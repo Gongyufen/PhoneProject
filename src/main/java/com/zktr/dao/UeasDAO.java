@@ -100,4 +100,19 @@ public class UeasDAO extends BaseDAO{
 		String sql="update z_ueas set z_uname=? where z_uid=?";
 		execute(sql,name,id);
 	}
+	//修改密码
+	public int xgPas(String pas,String laopas,int id) {
+		String sql="update z_ueas set z_pass=? where z_uid=? and z_pass=?";
+		return execute(sql,pas,id,laopas);
+	}
+	//修改电话
+	public int xgPhone(String phone,int id) {
+		String sql="update z_ueas set z_phone=? where z_uid=?";
+		return execute(sql,phone,id);
+	}
+	//修改头像
+	public int xgTx(String tx,int id) {
+		String sql="update z_ueas set z_avatar=? where z_uid=?";
+		return execute(sql,tx,id);
+	}
 }
