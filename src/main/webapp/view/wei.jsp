@@ -6,6 +6,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="../css/wei.css"/>
+<style type="text/css">
+	#di{
+		margin-left: 155px;
+	}
+</style>
 </head>
 <body>
 	<div id="di">

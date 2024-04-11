@@ -15,7 +15,7 @@
 	width:53%;
 	height: 105px;
 	margin-left:23%;
-	margin-top: 75px;
+	margin-top: 15px;
 	background-color: #e1e1e1;
 	border: 1px solid gray;
 	border-radius: 5px;
@@ -125,10 +125,55 @@
 #xia table tr td button:hover{
 	background-color:dimgray ;
 }
+.sidebar {
+            position: fixed;
+            top: 110px;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+			z-index: 1000;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+        .sidebar a {
+            color: gray;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            margin-top: 15px
+        }
+        .sidebar a:hover {
+            color: white;
+        }
+        .sub-menu {
+            display: none;
+            padding-left: 20px;
+        }
+        .sub-menu li {
+            margin-bottom: 5px;
+        }
+.sidebar ul ul {
+            display: none;
+            padding-left: 20px;
+        }
+        .sidebar ul ul li {
+            margin-bottom: 10px;
+        }
 </style>
 </head>
 <body>
-<script>
+	<script src="../jquery-3.5.1.min.js"></script>
+	<script>
 			       document.addEventListener("DOMContentLoaded", function() {
 			           const selectedColor = localStorage.getItem('selectedColor');
 			           if (selectedColor) {
@@ -162,11 +207,6 @@
 			<button id="sc">删除</button>
 			<table border="1">
 				<script>
-				   document.addEventListener("DOMContentLoaded", function() {
-				       var button = document.getElementById("tj");
-				       button.addEventListener("click", function() {
-				           window.location.href = "yhtj.html";
-				       });
 				       var bjButtons = document.querySelectorAll(".bj");
 				       bjButtons.forEach(function(button) {
 				           button.addEventListener("click", function() {
@@ -196,12 +236,58 @@
             <td><button class="bj">编辑</button><button>删除</button></td>
         </tr>
     </c:forEach>
-</tr>
-				
+</tr>	
 			</table>
 		</div>
 	<jsp:include page="../view/wei.jsp" >
 	<jsp:param  name="name" value="${list.get(0).getZ_uname()}"/>
 	</jsp:include>
+	<div class="sidebar" id="xx">
+		         <ul>
+					 <li><a href="#">首页</a>
+		             <li><a href="#">后台管理</a>
+		                 <ul class="sub-menu">
+		                     <li><a href="#">用户</a></li>
+		                     <li><a href="#">商品规格</a></li>
+		                     <li><a href="#">分类</a></li>
+							 <li><a href="#">商品</a></li>
+							 <li><a href="#">订单</a></li>
+							 <li><a href="#">评论</a></li>
+		                 </ul>
+		             </li>
+					 <li><a href="#">个人中心</a>
+		         </ul>
+		     </div>
+		     <script>
+		     const side = document.getElementById('xx');
+				
+				// 监听页面滚动事件
+				function scrollFunction() {
+				    var scrollPosition = window.scrollY;
+				    if (scrollPosition > 50) { // 当滚动位置超过50px时触发事件
+				    	side.style.top = "80px";
+				    } else if (scrollPosition < 50) { // 当滚动位置超过50px时触发事件
+				    	side.style.top = "110px";
+				    }
+				}
+				// 添加滚动事件监听器
+				window.addEventListener('scroll', scrollFunction);
+		     </script>
+			 <script>
+			         const menuItems = document.querySelectorAll('.sidebar a, #head-right-ul a');
+			         menuItems.forEach(item => {
+			             item.addEventListener('click', function(e) {
+			                 e.preventDefault();
+			                 const subMenu = this.nextElementSibling;
+			                 if (subMenu) {
+			                     if (subMenu.style.display === 'block') {
+			                         subMenu.style.display = 'none';
+			                     } else {
+			                         subMenu.style.display = 'block';
+			                     }
+			                 }
+			             });
+			         });
+			     </script>
 </body>
 </html>

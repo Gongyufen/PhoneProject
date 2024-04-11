@@ -31,5 +31,8 @@ public class UeasDAO extends BaseDAO{
 	        }
 	    });
 	}
-
+	public void insert(String z_uname,String z_esx,String z_phone,String z_pass) {
+		String sql="insert into z_ueas values(null,?,?,?,?,null,'用户')";
+		execute(sql,z_uname,z_pass,z_esx,z_phone);
+	}
 }
