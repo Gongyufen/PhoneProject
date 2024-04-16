@@ -115,12 +115,13 @@
 	background-color: dimgray;
 }
 #xia table tr td button{
-	margin-right: 5px;
-	width: 40px;
-	border: none;
-	border-radius: 5px;
-	background: #a1a1a1;
-	height: 30px;
+	margin-right: -10px;
+    width: 50px;
+    border: none;
+    border-radius: 5px;
+    background: #a1a1a1;
+    height: 30px;
+    margin-top: 15px;
 }
 #xia table tr td button:hover{
 	background-color:dimgray ;
@@ -188,35 +189,36 @@
 	<jsp:param  name="name" value="${list.get(0).getZ_uname()}"/>
 	</jsp:include>
 				<div id="shang" class="ss">
-			<form>
-				<div id="yh"><span>用户名称：</span><input type="text"/></div>
-				<div id="sj"><span>手机号码：</span><input type="text"/></div>
+			<form action="ChaServlet" method="get">
+				<div id="yh"><span>用户名称：</span><input name="yhm" type="text" class="tt"/></div>
+				<div id="sj"><span>手机号码：</span><input name="sj" type="text" class="sj"/></div>
 				<div id="zt">
 				<span>用户状态：</span>
-				<select>
-					<option>1(可用)</option>
-					<option>2(不可用)</option>
+				<select class="zt" name="zt">
+					<option value="1">1(可用)</option>
+					<option value="2">2(不可用)</option>
 				</select>
 				</div>
-				<input type="button" id="b1" value="搜索"/>
+				<input type="submit" id="b1" value="搜索"/>
 				<input type="button" id="b2" value="清空"/>
+				<script type="text/javascript">
+				// 获取清空按钮元素
+				var clearButton = document.getElementById("b2");
+				// 为清空按钮添加点击事件
+				clearButton.addEventListener("click", function() {
+				    // 获取所有输入框元素
+				    var inputElements = document.querySelectorAll('input[type="text"]');
+				    // 遍历所有输入框元素，将值设为空
+				    inputElements.forEach(function(input) {
+				        input.value = "";
+				    });
+				});
+				</script>
 			</form>
 		</div>
 		<div id="xia" class="ss">
-			<button id="tj">添加</button>
-			<button id="sc">删除</button>
 			<table border="1">
-				<script>
-				       var bjButtons = document.querySelectorAll(".bj");
-				       bjButtons.forEach(function(button) {
-				           button.addEventListener("click", function() {
-				               window.location.href = "yhbj.html";
-				           });
-				       });
-				   });
-					</script>
 				<tr>
-					<th><input type="checkbox"/></th>
 					<th>编号</th>
 					<th>用户名</th>
 					<th>性别</th>
@@ -227,17 +229,42 @@
 				<tr>
     	<c:forEach items="${list}" var="item">
         <tr>
-            <td><input type="checkbox"/></td>
             <td>${item.z_uid}</td>
             <td>${item.z_uname}</td>
             <td>${item.z_esx}</td>
             <td>${item.z_phone}</td>
             <td>${item.z_state}</td>
-            <td><button class="bj">编辑</button><button>删除</button></td>
+            <td><button class="bj" onclick="editFunction()">编辑</button>
+             <form action="SCuserServlet" method="get">
+            <input type="hidden" name="id" value="${item.z_uid}" />
+            <button type="submit" class="delete-btn">删除</button>
+        </form>
         </tr>
     </c:forEach>
 </tr>	
 			</table>
+			<script type="text/javascript">
+			// 获取所有编辑按钮元素
+			const editButtons = document.querySelectorAll('.bj');
+			editButtons.forEach((button, index) => {
+			    button.addEventListener('click', function() {
+			        // 获取所选行的数据
+			        const rowData = {
+			            id: document.querySelectorAll('#xia tr td')[index*7+1].textContent, // 获取ID
+			            z_uname: document.querySelectorAll('#xia tr td')[index*7+2].textContent,
+			            z_esx: document.querySelectorAll('#xia tr td')[index*7+3].textContent,
+			            z_phone: document.querySelectorAll('#xia tr td')[index*7+4].textContent,
+			            z_state: document.querySelectorAll('#xia tr td')[index*7+5].textContent
+			        };
+			        // 将数据存储到 sessionStorage 中
+			        sessionStorage.setItem('editData', JSON.stringify(rowData));
+			        // 将ID存储到sessionStorage中，以便第二个页面使用
+			        sessionStorage.setItem('editId', rowData.id);
+			        // 跳转到第二个页面
+			        window.location.href = 'userbj.jsp';
+			    });
+			});
+			</script>
 		</div>
 	<jsp:include page="../view/wei.jsp" >
 	<jsp:param  name="name" value="${list.get(0).getZ_uname()}"/>

@@ -17,6 +17,7 @@ public class BaseDAO {
 	/**
 	 * 获取连接对象
 	 * @return
+	 * 
 	 */
 	public Connection getConnection() {
 		try {
