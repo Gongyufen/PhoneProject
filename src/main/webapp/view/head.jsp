@@ -8,10 +8,22 @@
 <link type="text/css" rel="stylesheet" href="../css/head.css"/>
 </head>
 <body>
-	<div id="head">
-			<div id="headone">
-				<div id="head-left">
-					<ul id="head-left-ul" >
+	<script src="../jquery2-3.5.1.min.js"></script>
+	<script>
+			       document.addEventListener("DOMContentLoaded", function() {
+			           const selectedColor = localStorage.getItem('selectedColor');
+			           if (selectedColor) {
+			               var divs = document.getElementsByClassName('ss');
+			               for (var j = 0; j < divs.length; j++) {
+			                   divs[j].style.backgroundColor = selectedColor;
+			               }
+			           }
+			       });
+			</script>
+	<div id="head" class="ss">
+			<div id="headone" class="ss">
+				<div id="head-left" class="ss">
+					<ul id="head-left-ul" class="ss">
 						<li><a href="">首页</a></li>
 						<li>|</li>
 						<li><a href="">消费者业务网站</a></li>
@@ -23,8 +35,8 @@
 						<li><a href="">更多精彩</a></li>
 					</ul>
 				</div>
-				<div id="head-right">
-					<ul id="head-right-ul">
+				<div id="head-right" class="ss">
+					<ul id="head-right-ul" class="ss">
 						<li><a href="">请登录</a></li>
 						<li><a href="">注册</a></li>
 						<li>|</li>
@@ -41,7 +53,6 @@
 				</div>
 			</div>
 		</div>
-		
 		<div id="dhl">
 			<div id="daohanglan">
 				<div class="center">

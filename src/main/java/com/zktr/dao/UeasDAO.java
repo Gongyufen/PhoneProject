@@ -48,11 +48,7 @@ public class UeasDAO extends BaseDAO{
 	                        rs.getString("c_mname"));
 					list.add(uu);
 				}
-				if(list!=null) {
-					return list;
-				}else {
-					return null;
-				}
+				return list;
 			}
 		}, z_uname,z_phone,z_state);
 	}

@@ -106,7 +106,7 @@
 }
 p{
 	margin-top: 0px;
-	margin-left: 269px;
+	margin-left: 285px;
 	line-height: 14px;
 	padding: 9px;
 	padding-bottom: 20px;
@@ -230,7 +230,7 @@ h1{
 </style>
 </head>
 <body>
-	<script src="../jquery-3.5.1.min.js"></script>
+	<script src="../jquery2-3.5.1.min.js"></script>
 	<jsp:include page="../view/head.jsp" >
 	<jsp:param  name="name" value="${list.get(0).getZ_uname()}"/>
 	</jsp:include>
@@ -239,7 +239,7 @@ h1{
 		<div id="hz2">
 			<h2>系统参数</h2>
 			<div id="xhz" >
-				<form class="changeColor">
+				<form>
 					<span>自定义颜色:</span><input type="color"/>
 					<input type="submit" value="确定"  class="qd" onclick="changeColor()"/>
 					<script>
@@ -262,6 +262,7 @@ h1{
 						        divs[j].style.backgroundColor = selectedColor;
 						    }
 						    localStorage.setItem('selectedColor', selectedColor);
+						    location.reload(); 
 						}
 						document.addEventListener("DOMContentLoaded", function() {
 						    const selectedColor = localStorage.getItem('selectedColor');
@@ -278,13 +279,13 @@ h1{
 		</div>
 		<div id="big">
 			<h2>数据统计</h2>
-			<div id="hz3" class="changeColor">
+			<div id="hz3">
 				<p>商品销售红榜</p>
 			</div>
-			<div id="hz4" class="changeColor">
+			<div id="hz4">
 				<p>商品销售黑榜</p>
 			</div>
-			<div id="hz5" class="changeColor">
+			<div id="hz5">
 				<p>商品售量榜</p>
 			</div>
 		</div>
@@ -293,12 +294,33 @@ h1{
 	</jsp:include>
 	<div class="sidebar changeColor" id="xx">
 		         <ul>
-					 <li><a href="sy.jsp">首页</a> </li>
+					 <li id="sy"><a href="sy.jsp">首页</a></li>
+					 <script>
+		                     	$(function(){
+		                     		$("#sy").click(function(){
+		                     			window.location.href="sy.jsp";
+		                     		})
+		                     	})
+		                     </script>
 		             <li><a href="#">后台管理</a>
 		                 <ul class="sub-menu">
-		                     <li><a href="user.jsp">用户</a></li>
+		                     <li id="uesr"><a href="user">用户</a></li>
+		                     <script>
+		                     	$(function(){
+		                     		$("#uesr").click(function(){
+		                     			window.location.href="user";
+		                     		})
+		                     	})
+		                     </script>
 		                     <li><a href="#">商品规格</a></li>
-		                     <li><a href="#">分类</a></li>
+		                     <li id="fl"><a href="#">分类</a></li>
+		                     <script>
+		                     	$(function(){
+		                     		$("#fl").click(function(){
+		                     			window.location.href="fenlei";
+		                     		})
+		                     	})
+		                     </script>
 							 <li><a href="#">商品</a></li>
 							 <li><a href="#">订单</a></li>
 							 <li><a href="#">评论</a></li>

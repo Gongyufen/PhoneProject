@@ -24,23 +24,12 @@
 </style>
 </head>
 <body>
-	<script>
-		       document.addEventListener("DOMContentLoaded", function() {
-		           const selectedColor = localStorage.getItem('selectedColor');
-		           if (selectedColor) {
-		               var divs = document.getElementsByClassName('ss');
-		               for (var j = 0; j < divs.length; j++) {
-		                   divs[j].style.backgroundColor = selectedColor;
-		               }
-		           }
-		       });
-		</script>
-		<div id="sh" class="ss">
+		<div id="sh">
 			<span>编辑数据</span>
 		</div>
 		<div id="zhong">
 		<script type="text/javascript">
-		document.addEventListener("DOMContentLoaded", function() {
+			document.addEventListener("DOMContentLoaded", function() {
 		    // 从sessionStorage获取ID
 		    const editId = sessionStorage.getItem('editId');
 		    // 设置隐藏字段的值
@@ -79,7 +68,7 @@
 			});
 			</script>
 		</div>
-		<div id="wei" class="ss">
+		<div id="wei">
 		<script type="text/javascript">
 		function closeWindow() {
 		    window.history.back();

@@ -7,52 +7,70 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-	*{
-	margin: 0 auto;
-	padding: 0;
-}
-#shang{
-	width:53%;
+.sidebar {
+            position: fixed;
+            top: 110px;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+			z-index: 1000;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+        .sidebar a {
+            color: gray;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            margin-top: 15px
+        }
+        .sidebar a:hover {
+            color: white;
+        }
+        .sub-menu {
+            display: none;
+            padding-left: 20px;
+        }
+        .sub-menu li {
+            margin-bottom: 5px;
+        }
+.sidebar ul ul {
+            display: none;
+            padding-left: 20px;
+        }
+        .sidebar ul ul li {
+            margin-bottom: 10px;
+        }
+	#shang{
+	width: 40%;
 	height: 105px;
-	margin-left:23%;
-	margin-top: 15px;
+	margin-left:30%;
+	margin-top: 75px;
 	background-color: #e1e1e1;
 	border: 1px solid gray;
 	border-radius: 5px;
-}
-#xia{
-	width:51.5%;
-	margin-left:23%;
-	height: 400px;
-	margin-top: 30px;
-	background-color: #e1e1e1;
-	border: 1px solid gray;
-	border-radius: 5px;
-	padding: 10px;
-	padding-top:0px;
-	overflow: auto;
 }
 #shang form #yh{
 	padding-top: 20px;
 	padding-left: 25px;
 	font-size: 14px;
 }
-#shang form #sj{
-	margin-top: -20px;
-	font-size: 14px;
-	margin-left: 297px;
-}
-#shang form #zt{
-	margin-left: 24px;
-	margin-top: 15px;
-	font-size: 14px;
-	display: inline-block;
-}
 #shang form #b1{
 	display: inline-block;
 	width: 55px;
 	border: none;
 	border-radius: 5px;
+	margin-top: 20px;
 	background: #a1a1a1;
 	margin-left: 30px;
 	height: 25px;
@@ -99,6 +117,7 @@
 	border-radius: 5px;
 	background: #a1a1a1;
 }
+
 #xia #sc{
 	width: 55px;
 	margin-top: 20px;
@@ -115,93 +134,42 @@
 	background-color: dimgray;
 }
 #xia table tr td button{
-	margin-right: -10px;
-    width: 50px;
-    border: none;
-    border-radius: 5px;
-    background: #a1a1a1;
-    height: 30px;
-    margin-top: 15px;
+	margin-right: 5px;
+	width: 40px;
+	border: none;
+	border-radius: 5px;
+	background: #a1a1a1;
+	height: 30px;
+	margin-top: 15px;
 }
 #xia table tr td button:hover{
 	background-color:dimgray ;
 }
-.sidebar {
-            position: fixed;
-            top: 110px;
-            left: 0;
-            width: 200px;
-            height: 100%;
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            border-radius: 10px;
-			z-index: 1000;
-        }
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .sidebar li {
-            margin-bottom: 10px;
-        }
-        .sidebar a {
-            color: gray;
-            text-decoration: none;
-            display: block;
-            padding: 10px;
-            margin-top: 15px
-        }
-        .sidebar a:hover {
-            color: white;
-        }
-        .sub-menu {
-            display: none;
-            padding-left: 20px;
-        }
-        .sub-menu li {
-            margin-bottom: 5px;
-        }
-.sidebar ul ul {
-            display: none;
-            padding-left: 20px;
-        }
-        .sidebar ul ul li {
-            margin-bottom: 10px;
-        }
+#xia{
+	width: 39%;
+	height: 400px;
+	margin-top: 30px;
+	margin-left: 30%;
+	background-color: #e1e1e1;
+	border: 1px solid gray;
+	border-radius: 5px;
+	padding: 10px;
+	padding-top:0px;
+	overflow: auto;
+}
 </style>
 </head>
 <body>
-	<script src="../jquery2-3.5.1.min.js"></script>
-	<script>
-			       document.addEventListener("DOMContentLoaded", function() {
-			           const selectedColor = localStorage.getItem('selectedColor');
-			           if (selectedColor) {
-			               var divs = document.getElementsByClassName('ss');
-			               for (var j = 0; j < divs.length; j++) {
-			                   divs[j].style.backgroundColor = selectedColor;
-			               }
-			           }
-			       });
-			</script>
 	<jsp:include page="../view/head.jsp" >
-	<jsp:param  name="name" value="${list.get(0).getZ_uname()}"/>
+	<jsp:param  name="name" value="${list.get(0).getC_cid()}"/>
 	</jsp:include>
-				<div id="shang">
-			<form action="ChaServlet" method="get">
-				<div id="yh"><span>用户名称：</span><input name="yhm" type="text" class="tt"/></div>
-				<div id="sj"><span>手机号码：</span><input name="sj" type="text" class="sj"/></div>
-				<div id="zt">
-				<span>用户状态：</span>
-				<select class="zt" name="zt">
-					<option value="1">1(可用)</option>
-					<option value="2">2(不可用)</option>
-				</select>
-				</div>
-				<input type="submit" id="b1" value="搜索"/>
-				<input type="button" id="b2" value="清空"/>
-				<script type="text/javascript">
+	<div id="shang">
+					<form action="ChaFLServlet" method="get">
+						<div id="yh"><span>类别名称：</span><input type="text" name="lbm"/></div>
+						<input type="submit" id="b1" value="搜索"/>
+						<input type="button" id="b2" value="清空"/>
+					</form>
+					<script type="text/javascript">
 				// 获取清空按钮元素
 				var clearButton = document.getElementById("b2");
 				// 为清空按钮添加点击事件
@@ -214,60 +182,50 @@
 				    });
 				});
 				</script>
-			</form>
-		</div>
-		<div id="xia">
-			<table border="1">
-				<tr>
-					<th>编号</th>
-					<th>用户名</th>
-					<th>性别</th>
-					<th>手机号</th>
-					<th>用户状态</th>
-					<th>操作</th>
-				</tr>
-				<tr>
+				</div>
+				<div id="xia">
+				<script>
+						   document.addEventListener("DOMContentLoaded", function(
+						       var bjButtons = document.querySelectorAll(".bj");
+						       bjButtons.forEach(function(button) {
+						           button.addEventListener("click", function() {
+						               window.location.href = "flbj.html";
+						           });
+						       });
+						   });
+							</script>
+							<script type="text/javascript">
+							function editFunction() {
+							    const row = event.target.closest('tr'); 
+							    const id = row.cells[0].textContent; 
+							    const c_category = row.cells[1].textContent; 
+							    sessionStorage.setItem('editId', id);
+							    sessionStorage.setItem('editCategory', c_category);
+							    window.location.href = 'flbj.jsp';
+							}
+		</script>
+					<table border="1">
+						<tr>
+							<th>编号</th>
+							<th>类别名称</th>
+							<th>操作</th>
+						</tr>
+						<tr>
     	<c:forEach items="${list}" var="item">
         <tr>
-            <td>${item.z_uid}</td>
-            <td>${item.z_uname}</td>
-            <td>${item.z_esx}</td>
-            <td>${item.z_phone}</td>
-            <td>${item.z_state}</td>
+            <td>${item.c_cid}</td>
+            <td>${item.c_category}</td>
             <td><button class="bj" onclick="editFunction()">编辑</button>
-             <form action="SCuserServlet" method="get">
-            <input type="hidden" name="id" value="${item.z_uid}" />
+            <form action="SCflServlet" method="get">
+            <input type="hidden" name="id" value="${item.c_cid}" />
             <button type="submit" class="delete-btn">删除</button>
         </form>
         </tr>
     </c:forEach>
 </tr>	
-			</table>
-		</div>
-		<script type="text/javascript">
-		function editFunction() {
-		    // 获取当前编辑按钮所在的行
-		    const row = event.target.closest('tr'); // 或者使用 event.currentTarget.closest('tr')
-		    // 获取当前行的数据
-		    const rowData = {
-		        id: row.cells[0].textContent, // 获取编号（第一列）
-		        z_uname: row.cells[1].textContent, // 获取用户名（第二列）
-		        z_esx: row.cells[2].textContent, // 获取性别（第三列）
-		        z_phone: row.cells[3].textContent, // 获取手机号（第四列）
-		        z_state: row.cells[4].textContent // 获取用户状态（第五列）
-		    };
-		    // 将数据存储到 sessionStorage 中
-		    sessionStorage.setItem('editData', JSON.stringify(rowData));
-		    // 将ID存储到sessionStorage中，以便第二个页面使用
-		    sessionStorage.setItem('editId', rowData.id);
-		    // 跳转到第二个页面
-		    window.location.href = 'userbj.jsp';
-		}
-		</script>
-	<jsp:include page="../view/wei.jsp" >
-	<jsp:param  name="name" value="${list.get(0).getZ_uname()}"/>
-	</jsp:include>
-	<div class="sidebar ss" id="xx">
+					</table>
+				</div>
+				<div class="sidebar ss" id="xx">
 		         <ul>
 					 <li id="sy"><a href="sy.jsp">首页</a></li>
 					 <script>
@@ -303,6 +261,9 @@
 					 <li><a href="#">个人中心</a>
 		         </ul>
 		     </div>
+		     <jsp:include page="../view/wei.jsp" >
+	<jsp:param  name="name" value="${list.get(0).getC_cid()}"/>
+	</jsp:include>
 		     <script>
 		     const side = document.getElementById('xx');
 				
