@@ -132,6 +132,7 @@
 	background-color: white;
 }
 #box #shangpin:hover{
+	cursor: pointer;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 #remai{
@@ -156,6 +157,7 @@
 	background-color: white;
 }
 #remai #shangpin:hover{
+	cursor: pointer;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 #hezi{
@@ -194,5 +196,6 @@
 	color: #a1a1a1;
 }
 #hezi #shangpin:hover{
+	cursor: pointer;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
