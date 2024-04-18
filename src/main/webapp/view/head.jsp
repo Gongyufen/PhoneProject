@@ -72,21 +72,17 @@
 			// 回车键搜索
 			document.getElementById("wenbenkuang").addEventListener("keypress", function(event) {
 			    if (event.key === "Enter") {
-			        event.preventDefault();
-			        search();
+			    	var where=document.getElementById("wenbenkuang").value;
+			    	 event.preventDefault();
+				        if(where==""){
+				        	alert("搜索框不能为空,请重新输入！")
+				        }else{
+				        	window.location.href = "sousuo?value="+where;
+
+				        }
+			       
 			    }
 			});
-			function search() {
-			    var searchTerm = document.getElementById("wenbenkuang").value;
-			    // 执行搜索操作，例如向服务器发送搜索请求或者在页面上执行搜索逻辑
-			    // console.log("搜索：" + searchTerm);
-				if (searchTerm !== "") {
-				        // 使用 window.location.href 跳转到输入的URL
-				        window.location.href = "http://127.0.0.1:8848/jsp%E9%A1%B9%E7%9B%AE/%E6%90%9C%E7%B4%A2/sousuo.html";
-				    }
-			    // 清空搜索框
-			    document.getElementById("wenbenkuang").value = "";
-			}
 			// 回车键搜索2
 		</script>
 		

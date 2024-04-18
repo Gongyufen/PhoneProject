@@ -1,0 +1,25 @@
+package com.zktr.servlet;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.zktr.dao.ProductDAO;
+
+/**
+ * Servlet implementation class XiangqingServlet
+ */
+@WebServlet("/view/XiangqingServlet")
+public class XiangqingServlet extends HttpServlet {
+	private ProductDAO xiangqing = new ProductDAO();
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int mid=Integer.parseInt(request.getParameter("mid"));
+		request.setAttribute("product", xiangqing.xiangqing(mid));
+		request.setAttribute("guige", xiangqing.xqguige(mid));
+		request.getRequestDispatcher("xiangqing.jsp").forward(request, response);
+	}
+
+}
