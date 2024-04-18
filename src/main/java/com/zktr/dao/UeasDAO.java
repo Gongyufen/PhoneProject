@@ -11,10 +11,10 @@ import com.zktr.entity.Ueas;
 public class UeasDAO extends BaseDAO{
 	public List<Ueas> select(String z_uname,String z_pass) {
 		String sql="select * from z_ueas where z_uname=? and z_pass=?";
-		return query(sql,new Mapper(){
+		return query(sql,new Mapper<Ueas>(){
 			@Override
 			public List<Ueas> map(ResultSet rs) throws SQLException {
-				List<Ueas> list=new ArrayList();
+				List<Ueas> list=new ArrayList<>();
 				if (rs.next()) {
 					Ueas ueas=new Ueas(
 							rs.getInt("z_uid"),
@@ -39,10 +39,10 @@ public class UeasDAO extends BaseDAO{
 	//根据id查询
 	public List<Ueas> select(int id) {
 		String sql="select * from z_ueas where z_uid=?";
-		return query(sql,new Mapper(){
+		return query(sql,new Mapper<Ueas>(){
 			@Override
 			public List<Ueas> map(ResultSet rs) throws SQLException {
-				List<Ueas> list=new ArrayList();
+				List<Ueas> list=new ArrayList<>();
 				if (rs.next()) {
 					Ueas ueas=new Ueas(
 							rs.getInt("z_uid"),
@@ -71,10 +71,10 @@ public class UeasDAO extends BaseDAO{
 	//判断
 	public boolean judge(String z_uname) {
 		String sql="select * from z_ueas where z_uname=?";
-		if(query(sql,new Mapper() {
+		if(query(sql,new Mapper<Ueas>() {
 			@Override
-			public List map(ResultSet rs) throws SQLException {
-				List<Ueas> list=new ArrayList();
+			public List<Ueas> map(ResultSet rs) throws SQLException {
+				List<Ueas> list=new ArrayList<>();
 				if(rs.next()) {
 					Ueas ueas=new Ueas(
 							rs.getInt("z_uid"),

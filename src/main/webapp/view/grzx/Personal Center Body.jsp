@@ -167,9 +167,10 @@
 	</jsp:include>
 	
 			<!-- 主体 -->
-			<p>个人中心</p>
+			
 			
 			<div id="grzx" class="box">
+			<p>个人中心</p>
 				<!-- 信息管理 -->
 				<div id="yhxx" style="width: 430px">
 					<div id="tx">

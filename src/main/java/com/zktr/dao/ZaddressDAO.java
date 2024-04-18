@@ -25,10 +25,10 @@ public class ZaddressDAO extends BaseDAO{
 	}
 	public List<Zaddress> select(int uid){
 		String sql="select * from z_address where z_uid=?";
-		return query(sql,new Mapper() {
+		return query(sql,new Mapper<Zaddress>() {
 			@Override
 			public List<Zaddress> map(ResultSet rs) throws SQLException {
-				List<Zaddress> list=new ArrayList();
+				List<Zaddress> list=new ArrayList<>();
 				while(rs.next()) {
 					Zaddress zaddress=new Zaddress(
 								rs.getInt(1),
