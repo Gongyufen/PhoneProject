@@ -53,9 +53,9 @@ a{
 							<li id="xgphone">修改手机号</li>
 						</ul>
 					</li>
-					<li><a href="DindanServlet">我的订单</a></li>
+					<li><a href="../view/DindanServlet">我的订单</a></li>
 					<li>我的评论</li>
 					<li>我浏览过的商品</li>
-					<li><a href="SelectDizServlet">收货地址管理</a> </li>
+					<li><a href="../view/SelectDizServlet">收货地址管理</a> </li>
 				</ul>
 	</div>

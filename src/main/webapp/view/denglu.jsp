@@ -85,7 +85,7 @@
 <body>
     <div class="form-container">
         <h2>登录</h2>${pd }
-        <form class="login-form" action="DengluServlet" method="post">
+        <form class="login-form" action="DengluServlet" method="get">
             <input type="text" placeholder="用户名" name="name" required>
             <input type="password" placeholder="密码" name="pas" required>
             <button type="submit">登录</button>

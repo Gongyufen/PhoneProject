@@ -15,7 +15,7 @@ import com.zktr.entity.Cclass;
 /**
  * Servlet implementation class CclassServlet
  */
-@WebServlet(urlPatterns = "/webapp/shouye")
+@WebServlet(urlPatterns = "/view/shouye")
 public class CclassServlet extends HttpServlet {
 	private CclassDAO cclass = new CclassDAO();
 	private ModelDAO model = new ModelDAO();
@@ -26,7 +26,7 @@ public class CclassServlet extends HttpServlet {
 		for(int i=0;i<cclass.query().size();i++) {
 			request.setAttribute("model"+i, model.query(cclass.query().get(i).getCid()));
 		}
-		request.getRequestDispatcher("/view/shouye.jsp").forward(request, response);
+		request.getRequestDispatcher("shouye.jsp").forward(request, response);
 	}
 
 }

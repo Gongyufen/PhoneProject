@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
  <link type="text/css" rel="stylesheet" href="../css/head.css"/>
 <div id="head">
 			<div id="headone">
 				<div id="head-left">
 					<ul id="head-left-ul" >
-						<li><a href="">首页</a></li>
+						<li><a href="shouye">首页</a></li>
 						<li>|</li>
 						<li><a href="">消费者业务网站</a></li>
 						<li>|</li>
@@ -18,7 +20,14 @@
 				</div>
 				<div id="head-right">
 					<ul id="head-right-ul">
-						<li><a href="">请登录或注册</a></li>
+						 <c:choose>    
+						<c:when test="${param.name==null }">  
+							<li><a href="denglu.jsp">请登录或注册</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="DengluServlet?grzx=1">${param.name }，你好</a></li>
+						</c:otherwise>   
+					</c:choose>
 						<li>|</li>
 						<li><a href="">我的订单</a></li>
 						<li>|</li>
