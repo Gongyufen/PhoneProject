@@ -156,13 +156,13 @@
     					
 					</div>
 						<button class="gmtwo">加入购物车</button>
-						<span class="xhid" style="display: none"><%=request.getParameter("mid") %></span>
+						<span id="xhid" style="display: none"><%=request.getParameter("mid") %></span>
 						
 						<script type="text/javascript" src="../jquery-3.5.1.min.js"></script>
 						<script>
 							$(function() {
 								$(".gmtwo").click(function() {
-									var xhid=$(".xhid").text();
+									var xhid=$("#xhid").text();
 									var jgid=$("#jgid").text();
 									var did=$(".did").text();
 									var ysid=$("#ysxuanz").find(".ysid").text();
@@ -175,7 +175,7 @@
 					<script>
 						$(function() {
 							$(".gmthree").click(function() {
-								var xhid=$(".xhid").text();
+								var xhid=$("#xhid").text();
 								var jgid=$("#jgid").text();
 								var num=$("#zhi").text();
 								window.location.href="QrDindanServlet?mid="+xhid+"&rid="+jgid+"&num="+num;

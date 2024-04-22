@@ -23,7 +23,7 @@ public class BaseDAO {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jsp项目?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8", "root", "123456");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/phone?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8", "root", "123456");
 
 			return conn;
 		} catch (ClassNotFoundException e) {
