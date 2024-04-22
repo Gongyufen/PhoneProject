@@ -8,8 +8,9 @@ import java.util.List;
 import com.zktr.entity.Indent;
 
 public class IndentDAO extends BaseDAO{
-	public List<List<Indent>> selectdd(int uid){
-		String sql="select * from z_indent where z_uid=?";
+	//查询对应用户的订单
+	public List<List<Indent>> selectdd(int uid ,int ks,int tiao){
+		String sql="select * from z_indent where z_uid=? LIMIT ?,?";
 		return query(sql,new Mapper<List<Indent>>() {
 		@Override
 		public List<List<Indent>> map(ResultSet rs) throws SQLException {
@@ -18,7 +19,33 @@ public class IndentDAO extends BaseDAO{
 				list.add(selectxq(rs.getInt(1)));
 			}
 			return list;
-		}},uid);
+		}},uid ,ks,tiao);
+	}
+	public List<Integer> totel(int uid,String zt){
+		String sql="select COUNT(*) from z_indent where z_uid=? and z_status=?";
+		return query(sql,new Mapper<Integer>() {
+			@Override
+			public List<Integer> map(ResultSet rs) throws SQLException {
+				List<Integer> list=new ArrayList();
+				if(rs.next()) {
+					list.add(rs.getInt(1));
+				}
+				return list;
+			}
+		},uid,zt);
+	}
+	public List<Integer> totel(int uid){
+		String sql="select COUNT(*) from z_indent where z_uid=? ";
+		return query(sql,new Mapper<Integer>() {
+			@Override
+			public List<Integer> map(ResultSet rs) throws SQLException {
+				List<Integer> list=new ArrayList();
+				if(rs.next()) {
+					list.add(rs.getInt(1));
+				}
+				return list;
+			}
+		},uid);
 	}
 	public List<List<Indent>> selectddxq(int iid){
 		String sql="select * from z_indent where z_iid=?";
@@ -33,8 +60,8 @@ public class IndentDAO extends BaseDAO{
 		}},iid);
 	}
 	//根据订单状态查询
-	public List<List<Indent>> selectdd(int uid,String z_status){
-		String sql="select * from z_indent where z_uid=? and z_status=?";
+	public List<List<Indent>> selectdd(int uid,String z_status,int ks,int tiao){
+		String sql="select * from z_indent where z_uid=? and z_status=? LIMIT ?,?";
 		return query(sql,new Mapper<List<Indent>>() {
 		@Override
 		public List<List<Indent>> map(ResultSet rs) throws SQLException {
@@ -43,7 +70,7 @@ public class IndentDAO extends BaseDAO{
 				list.add(selectxq(rs.getInt(1)));
 			}
 			return list;
-		}},uid,z_status);
+		}},uid,z_status,ks,tiao);
 	}
 	public List<Indent> selectxq(int id){
 		String sql="SELECT * FROM z_indent_details "
@@ -71,6 +98,7 @@ public class IndentDAO extends BaseDAO{
 				indent.setZ_consignee(rs.getString("z_consignee"));
 				indent.setZ_phone(rs.getString("z_phone"));
 				indent.setZ_address(rs.getString("z_address"));
+				indent.setDid(rs.getInt("z_did"));
 				rs.next();
 				indent.setNc(rs.getString("c_gtails"));
 				list.add(indent);
@@ -102,9 +130,14 @@ public class IndentDAO extends BaseDAO{
 		return execute(sql,z_consignee,z_address,z_phone,iid);
 	}
 	//新增订单
-	public int xzDd(int uid,String consignee,String address,String phone) {
-		String sql="insert into z_indent value(null,?,null,null,'待付款',?,?,?)";
-		return execute(sql,uid,consignee,address,phone);
+	public int xzDd(int uid) {
+		String sql="insert into z_indent value(null,?,null,null,'待付款',null,null,null)";
+		return execute(sql,uid);
+	}
+	//确认订单
+	public int okdd(double z_price,String z_consignee,String z_address,String z_phone,int uid) {
+		String sql="update z_indent set z_price=?,z_date=now(),z_consignee=?,z_address=?,z_phone=? where z_iid=?";
+		return execute(sql,z_price,z_consignee,z_address,z_phone,maxIid(uid).get(0));
 	}
 	//查询用户的最新订单
 	public List<Integer> maxIid(int uid){
@@ -125,4 +158,5 @@ public class IndentDAO extends BaseDAO{
 		String sql="insert into z_indent_details value(null,?,?,?,?,?,?)";
 		return execute(sql,maxIid(uid).get(0),rid,category,numder,price,mid);
 	}
+	
 }

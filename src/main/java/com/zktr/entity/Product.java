@@ -1,5 +1,7 @@
 package com.zktr.entity;
 
+import java.sql.Timestamp;
+
 /**
 * @Description: 
 * @author: ccy
@@ -21,7 +23,6 @@ public class Product {
 	private int c_did;//商品详情id
 	
 	private int c_gid;
-	
 	
 	
 	public int getC_did() {

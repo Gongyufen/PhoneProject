@@ -103,8 +103,8 @@ public class PageTag extends SimpleTagSupport {
 		
 		//拼出最后的结果
 		StringBuffer sb = new StringBuffer();
-		sb.append("<div class='lzh_p'>").append(first).append(pre)
-			.append(next).append(last).append(info)
+		sb.append("<div class='lzh_p'>").append(first).append(pre).append(info+"&nbsp;&nbsp;")
+			.append(next).append(last)
 			.append("</div>");
 		
 		//输出

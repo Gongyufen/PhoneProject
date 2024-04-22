@@ -171,8 +171,17 @@
 								})
 							})
 						</script>
-					
 					<button class="gmthree">立即购买</button>
+					<script>
+						$(function() {
+							$(".gmthree").click(function() {
+								var xhid=$(".xhid").text();
+								var jgid=$("#jgid").text();
+								var num=$("#zhi").text();
+								window.location.href="QrDindanServlet?mid="+xhid+"&rid="+jgid+"&num="+num;
+							})
+						})
+					</script>
 				</div>
 			</div>
 		</div>

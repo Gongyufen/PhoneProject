@@ -234,7 +234,12 @@
 						<span class="jg">￥${p.c_rsprice }</span>
 					</div>
 				</div>
-				<script type="text/javascript" src="../jquery-3.5.1.min.js"></script>
+				
+				
+			</c:forEach>
+		</div>
+	</c:forEach>
+	<script type="text/javascript" src="../jquery-3.5.1.min.js"></script>
 				<script>
 					$(function() {
 						$(".shangpin").click(function() {
@@ -243,11 +248,6 @@
 						})
 					})
 				</script>
-				
-			</c:forEach>
-		</div>
-	</c:forEach>
-	
 	<jsp:include page="di.jsp"></jsp:include>
 
 </body>

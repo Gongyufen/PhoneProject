@@ -35,7 +35,6 @@ public class ProductDAO extends BaseDAO{
 			}
 		},cid);
 	}
-	
 	//搜索结果：根据类别名查询商品信息
 		public List<Product> leibieming(String category){
 			String sql = "SELECT c_getails.c_groute, c_model.c_mname, c_details.c_describe, c_rprice.c_rsprice\r\n"
@@ -57,10 +56,9 @@ public class ProductDAO extends BaseDAO{
 				}
 			},category);
 		}
-		
 		//商品详情：根据商品详情id查询商品信息
 			public List<Product> xiangqing(int c_mid){
-				String sql = "SELECT c_details.c_did, c_getails.c_groute, c_model.c_mname, c_details.c_describe, c_rprice.c_rsprice,c_rprice.c_rid\r\n"
+				String sql = "SELECT c_details.c_did, c_getails.c_groute, c_model.c_mname, c_details.c_describe, c_rprice.c_rsprice,c_rprice.c_rid,c_model.c_mid\r\n"
 						+ "FROM c_getails\r\n"
 						+ "JOIN c_details ON c_getails.c_gid = c_details.c_did\r\n"
 						+ "JOIN c_model ON c_details.c_mid = c_model.c_mid\r\n"
@@ -72,6 +70,7 @@ public class ProductDAO extends BaseDAO{
 						while(rs.next()) {
 							Product product = new Product(rs.getString(2),rs.getString(3),rs.getString(4),rs.getDouble(5));
 							product.setC_rid(rs.getInt(6));
+							product.setC_mid(7);
 							list.add(product);
 						}
 						return list;

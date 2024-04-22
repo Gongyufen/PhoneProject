@@ -26,7 +26,7 @@ public class CclassServlet extends HttpServlet {
 	private ProductDAO product = new ProductDAO();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		response.setCharacterEncoding("UTF-8");
+		 response.setCharacterEncoding("UTF-8");
 		List<Cclass> query = cclass.query();
 		request.setAttribute("cclass",query );
 		for(int i=0;i<query.size();i++) {
@@ -38,7 +38,7 @@ public class CclassServlet extends HttpServlet {
 		});
 		request.setAttribute("product", list);
 		
-		request.getRequestDispatcher("/view/shouye.jsp").forward(request, response);
+		request.getRequestDispatcher("shouye.jsp").forward(request, response);
 	}
 
 }

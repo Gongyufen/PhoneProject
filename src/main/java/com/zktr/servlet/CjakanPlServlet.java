@@ -7,19 +7,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.zktr.dao.IndentDAO;
-
 /**
- * Servlet implementation class DindanXqServlet
+ * Servlet implementation class CjakanPlServlet
  */
-@WebServlet("/view/DindanXqServlet")
-public class DindanXqServlet extends HttpServlet {
+@WebServlet("/CjakanPlServlet")
+public class CjakanPlServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("UTF-8");
-		int id=Integer.parseInt(request.getParameter("iid"));
-		IndentDAO indentDAO=new IndentDAO();
-		request.setAttribute("ddxq",indentDAO.selectddxq(id));
-		request.getRequestDispatcher("grzx/dindanxq.jsp").forward(request, response);
+		
 	}
+
+
 }
