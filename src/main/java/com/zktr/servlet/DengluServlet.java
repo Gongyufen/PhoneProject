@@ -17,23 +17,35 @@ import com.zktr.dao.UeasDAO;
  */
 @WebServlet("/view/DengluServlet")
 public class DengluServlet extends HttpServlet {
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		 response.setCharacterEncoding("UTF-8");
 		 response.setContentType("text/html;charset=UTF-8");
-		String name=request.getParameter("name");
-		String pas=request.getParameter("pas");
-		UeasDAO usersdao = new UeasDAO();
-		HttpSession session=request.getSession();
-		PrintWriter out = response.getWriter();
-		if (usersdao.select(name, pas).size()!=0) {
-			session.setAttribute("list",usersdao.select(name,pas));
-			session.setAttribute("id",usersdao.select(name,pas).get(0).getZ_uid());
-		request.getRequestDispatcher("grzx/Personal Center Body.jsp").forward(request, response);
+		 
+		if (request.getParameter("grzx")!=null) {
+				request.getRequestDispatcher("grzx/Personal Center Body.jsp").forward(request, response);
 		}else {
-			request.setAttribute("pd","登陆失败");
-			request.getRequestDispatcher("denglu.jsp").forward(request, response);
+				if (request.getParameter("name")!=null&&request.getParameter("pas")!=null) {
+					String name=request.getParameter("name");
+					String pas=request.getParameter("pas");
+					UeasDAO usersdao = new UeasDAO();
+					HttpSession session=request.getSession();
+					PrintWriter out = response.getWriter();
+					if (usersdao.select(name, pas).size()!=0) {
+						session.setAttribute("list",usersdao.select(name,pas));
+						System.out.println(usersdao.select(name,pas));
+						session.setAttribute("id",usersdao.select(name,pas).get(0).getZ_uid());
+						
+					}else {
+						request.setAttribute("pd","登陆失败");
+						request.getRequestDispatcher("denglu.jsp").forward(request, response);
+					}
+				}
+				request.getRequestDispatcher("shouye").forward(request, response);
 		}
+		
+		
+		
 		
 		
 	}

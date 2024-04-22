@@ -171,7 +171,6 @@
 								})
 							})
 						</script>
-					
 					<button class="gmthree">立即购买</button>
 					<script>
 						$(function() {

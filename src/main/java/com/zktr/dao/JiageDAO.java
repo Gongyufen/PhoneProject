@@ -35,4 +35,18 @@ public class JiageDAO extends BaseDAO{
 			}
 		},ysid,ncid);
 	}
+	public List<Jiage> jiaGe(int rid){
+		String sql="select * from c_rprice where c_rid=?";
+		return this.query(sql, new Mapper<Jiage>() {
+			@Override
+			public List<Jiage> map(ResultSet rs) throws SQLException  {
+				List<Jiage> list = new ArrayList<>();
+				while(rs.next()) {
+					Jiage jiage=new Jiage(rs.getInt(1),rs.getDouble(2));
+					list.add(jiage);
+				}
+				return list;
+			}
+		},rid);
+	}
 }

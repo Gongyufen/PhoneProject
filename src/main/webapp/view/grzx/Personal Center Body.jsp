@@ -8,6 +8,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<link type="text/css" rel="stylesheet" href="../../css/head.css"/>
 		<style type="text/css">
 			     input[type="file"] {
 				        display: none;
@@ -119,7 +120,7 @@
 				margin-bottom: 20px;
 			}
 		</style>
-		<script src="../jquery-3.5.1.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
 		<script>
 			$(function(){
 				$("#dz").click(function(){

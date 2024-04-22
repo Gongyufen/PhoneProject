@@ -15,13 +15,17 @@ import com.zktr.dao.IndentDAO;
 @WebServlet("/view/DindanFukServlet")
 public class DindanFukServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		 response.setCharacterEncoding("UTF-8");
 		IndentDAO indentDAO=new IndentDAO();
+		int uid=Integer.parseInt(request.getSession().getAttribute("id").toString());
+		System.out.println(uid);
 		int id=Integer.parseInt( request.getParameter("iid"));
-		if(request.getParameter("zt").equals("确认收货")) {
+		if(request.getParameter("cz").equals("确认收货")) {
 			indentDAO.ddOk(id);
-		}else if(request.getParameter("zt").equals("付款")){
+		}else if(request.getParameter("cz").equals("付款")){
 			indentDAO.ddFk(id);
-		}else if(request.getParameter("zt").equals("取消")) {
+		}else if(request.getParameter("cz").equals("取消")) {
 			indentDAO.scDdxq(id);
 			indentDAO.scDd(id);
 		}

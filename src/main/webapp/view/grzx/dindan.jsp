@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://www.trkj.com/tr03802/tags" prefix="zdy" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,10 +43,19 @@
 	margin-bottom: 10px;
 	background-color: white;
 }
+td{
+	margin-bottom: 10px; 
+}
 td button {
 	border: none;
 	padding: 5px 10px;
 	margin-bottom: 10px;
+}
+.xiao{
+	display: none;
+}
+#page a{
+	margin: 0 10px;
 }
 </style>
  <link type="text/css" rel="stylesheet" href="../../css/head.css"/>
@@ -73,7 +83,7 @@ td button {
 									window.location.href="DindanServlet?zt=待付款";
 								})
 								$("#dsh").click(function() {
-									window.location.href="DindanServlet?zt=待收货";
+									window.location.href="DindanServlet?zt=已付款";
 								})
 								$("#ywc").click(function() {
 									window.location.href="DindanServlet?zt=完成交易";
@@ -131,19 +141,20 @@ td button {
 									</tr>
 								</c:forEach>
 							</c:forEach>
+							
 							<script>
 								$(function() {
 									$(".fk").click(function() {
 										var id=$(this).parent().parent().find("td").eq(0).text();
-										window.location.href="DindanFukServlet?iid="+id+"&zt=付款";
+										window.location.href="DindanFukServlet?iid="+id+"&cz=付款";
 									})
 									$(".sh").click(function() {
 										var id=$(this).parent().parent().find("td").eq(0).text();
-										window.location.href="DindanFukServlet?iid="+id+"&zt=确认收货";
+										window.location.href="DindanFukServlet?iid="+id+"&cz=确认收货";
 									})
 									$(".qx").click(function() {
 										var id=$(this).parent().parent().find("td").eq(0).text();
-										window.location.href="DindanFukServlet?iid="+id+"&zt=取消";
+										window.location.href="DindanFukServlet?iid="+id+"&cz=取消";
 									})
 									$(".xq").click(function() {
 										var id=$(this).parent().parent().find("td").eq(0).text();
@@ -152,6 +163,9 @@ td button {
 								})
 							</script>
 							</table>
+							<div style="width: 470px;margin: 0 auto;" id="page">
+								<zdy:page controller="DindanServlet" pagesize="3" total="${total }" curpage="${curpage }"/>
+							</div>
 						</div>
 					</div>
 				</div>
