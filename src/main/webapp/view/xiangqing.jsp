@@ -46,7 +46,7 @@
 						<p>${ys.getC_aname() }</p>
 					</c:if>
 					
-					<div class="xuanzhe" ><span class="ysid" style="display: none">${ys.getC_gid() }</span>${ys.getC_gtails() }</div>
+					<div class="xuanzhe" id="ysxuanz" ><span class="ysid" style="display: none">${ys.getC_gid() }</span>${ys.getC_gtails() }</div>
 				</c:forEach>
 					
 				</div>
@@ -77,6 +77,7 @@
 				</script>
 				
 				<div id="banben">
+				<span class="did" style="display: none">${guige.get(1).get(1).getC_did()}</span>
 					<c:forEach items="${guige.get(1)}" var="ys" varStatus="yans">
 						<c:if test="${yans.index==0 }">
 							<p>${ys.getC_aname() }</p>
@@ -91,6 +92,7 @@
 							$(".xuanxiang").attr("id","no");
 							$(this).attr("id","xuanznc");
 							var ysid=$("#ysxuanz").find(".ysid").text();
+							
 							var ncid=$("#xuanznc").find(".ncid").text();
 							$.getJSON("JubushuaxinjiageServlet?ysid="+ysid+"&ncid="+ncid,{},function(v){
 								$(".jg").text(v[0].c_rsprice);
@@ -153,7 +155,23 @@
     					<!-- 加减功能2 -->
     					
 					</div>
-					<button class="gmtwo">加入购物车</button>
+						<button class="gmtwo">加入购物车</button>
+						<span class="xhid" style="display: none"><%=request.getParameter("mid") %></span>
+						
+						<script type="text/javascript" src="../jquery-3.5.1.min.js"></script>
+						<script>
+							$(function() {
+								$(".gmtwo").click(function() {
+									var xhid=$(".xhid").text();
+									var jgid=$("#jgid").text();
+									var did=$(".did").text();
+									var ysid=$("#ysxuanz").find(".ysid").text();
+									var ncid=$("#xuanznc").find(".ncid").text();
+									window.location.href="GouwucheServlet?mid="+xhid+"&rid="+jgid+"&ysid="+ysid+"&ncid="+ncid+"&did="+did;
+								})
+							})
+						</script>
+					
 					<button class="gmthree">立即购买</button>
 				</div>
 			</div>

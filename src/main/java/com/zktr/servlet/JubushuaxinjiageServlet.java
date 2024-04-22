@@ -21,6 +21,8 @@ import com.zktr.entity.Jiage;
 @WebServlet("/view/JubushuaxinjiageServlet")
 public class JubushuaxinjiageServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("UTF-8");
 		JiageDAO jiageDAO=new JiageDAO();
 		int ysid=Integer.parseInt(request.getParameter("ysid"));
 		int ncid=Integer.parseInt(request.getParameter("ncid"));

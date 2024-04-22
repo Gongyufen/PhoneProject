@@ -202,23 +202,23 @@
 		</script>
 	<!-- 锚链接2 -->
 
-	<div id="box">
+	<!-- <div id="box">
 		<p id="biaoti">最新上架</p>
 		<div id="shangpin"></div>
 		<div id="shangpin"></div>
 		<div id="shangpin"></div>
 		<div id="shangpin"></div>
 		<div id="shangpin"></div>
-	</div>
+	</div> -->
 
-	<div id="remai">
+	<!-- <div id="remai">
 		<p id="biaoti">热卖商品</p>
 		<div id="shangpin"></div>
 		<div id="shangpin"></div>
 		<div id="shangpin"></div>
 		<div id="shangpin"></div>
 		<div id="shangpin"></div>
-	</div>
+	</div> -->
 
 	<c:forEach items="${cclass}" var="c" varStatus="index">
 		<div id="hezi">
@@ -229,7 +229,7 @@
 						<img style="width: 100%; height: 100%;" src="../img/1.1千山绿.png" />
 					</div>
 					<div class="zi">
-					<span class="id" style="display: none;">${p.getC_mid() }</span>
+					<span class="mid" style="display: none;">${p.getC_mid() }</span>
 						${p.c_mname }<br /> <span class="js">${p.c_describe }</span><br />
 						<span class="jg">￥${p.c_rsprice }</span>
 					</div>
@@ -238,7 +238,7 @@
 				<script>
 					$(function() {
 						$(".shangpin").click(function() {
-							var mid=$(this).find(".zi").find(".id").text();
+							var mid=$(this).find(".zi").find(".mid").text();
 							window.location.href="XiangqingServlet?mid="+mid;
 						})
 					})

@@ -110,6 +110,7 @@ public class ProductDAO extends BaseDAO{
 						Product product = new Product();
 						product.setC_aname(rs.getString(6));
 						product.setC_gtails(rs.getString(3));
+						product.setC_did(rs.getInt("c_did"));
 						product.setC_gid(rs.getInt(1));
 						list.add(product);
 					}

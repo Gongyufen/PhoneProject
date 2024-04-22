@@ -5,7 +5,7 @@
 			<div id="headone">
 				<div id="head-left">
 					<ul id="head-left-ul" >
-						<li><a href="">首页</a></li>
+						<li><a href="shouye">首页</a></li>
 						<li>|</li>
 						<li><a href="">消费者业务网站</a></li>
 						<li>|</li>

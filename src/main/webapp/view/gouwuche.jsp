@@ -9,6 +9,8 @@
 <link type="text/css" rel="stylesheet" href="../css/gouwuche.css" />
 <link type="text/css" rel="stylesheet" href="../css/head.css" />
 <link type="text/css" rel="stylesheet" href="../css/di.css" />
+		<script type="text/javascript" src="../jquery-3.5.1.min.js"></script>
+
 </head>
 <body>
 <div id="head">
@@ -56,8 +58,8 @@
 		
 		<div id="mingcheng">
 			<div id="mc">
-				<label class="biaotione">
-					<input type="checkbox" class="one" />
+				<label class="biaotione" id="checkall">
+					<input type="checkbox" class="onecheck" />
 					<div class="two">全选</div>
 				</label>
 				<ul>
@@ -69,34 +71,39 @@
 				</ul>
 			</div>
 		</div>
-		
-		<div id="shangpin">
-			<input type="checkbox" class="one" />
-			<div class="two">
-				<img src="../img/手机.webp" />
-				<ul>
-					<li class="sp">
-						<p>HUAWEI Mate X5 多向支架视窗保护套</p>
-						<p>蓝色</p>
-						<p>12GB+256GB</p>
-					</li>
-					<li style="text-align: center;">¥ 299.00</li>
-					<li style="text-align: center;">
-						<div class="shu">
-							<a href="" class="zuo">-</a>
-							<input type="text" />
-							<a href="" class="you">+</a>
-						</div>
-					</li>
-					<li style="text-align: center;color: #ca151e;font-weight: 700;">¥ 299.00</li>
-					<li style="text-align: center;color: #a4a4a4;"><a href="">删除</a></li>
-				</ul>
+		<c:forEach items="${mid }" var="mid">
+			<div id="shangpin">
+				<input type="checkbox" class="one"/>
+				<div class="two">
+					<img src="../img/手机.webp" />
+					<ul>
+						<li class="sp">
+							<p>${mid.c_mname }</p>
+							<p>${mid.c_ysgtails }</p>
+							<p>${mid.c_ncgtails }</p>
+						</li>
+						<li style="text-align: center;"><span style="display: none;">${mid.c_rid }</span>¥ ${mid.c_rsprice }</li>
+						<li style="text-align: center;">
+							<div class="shu">
+								<a href="" class="zuo">-</a>
+								<input type="text" />
+								<a href="" class="you">+</a>
+							</div>
+						</li>
+						<li style="text-align: center;color: #ca151e;font-weight: 700;">¥ 299.00</li>
+						<li style="text-align: center;color: #a4a4a4;"><a href="">删除</a></li>
+					</ul>
+				</div>
 			</div>
-		</div>
+		</c:forEach>
+		
 		
 		<div id="jiesuan">
 			<div id="gongneng">
-				<input type="checkbox" id="qx" /><div class="ziti">全选</div>
+				<label class="checkall">
+					<input type="checkbox" id="qx" />
+					<div class="ziti">全选</div>
+				</label>
 				<div class="sc"><a href="">删除</a></div>
 			</div>
 				<a href="" id="js">立即结算</a>
@@ -108,6 +115,28 @@
 				<div class="xz">已选择<em>0</em>件商品</div>
 			</div>
 		</div>
+		
+		<script>
+			$(function() {
+				$(".onecheck").click(function() {
+					
+					$(".one").each(function() {
+						$(this).prop("checked",$(".onecheck").prop("checked"));
+					})
+					$("#qx").prop("checked",$(this).prop("checked"));
+				})
+				
+				$("#qx").click(function() {
+					
+					$(".one").each(function() {
+						$(this).prop("checked",$("#qx").prop("checked"));
+					})
+					$(".onecheck").prop("checked",$(this).prop("checked"));
+				})
+			})
+			
+			
+    	</script>
 		
 		<jsp:include page="di.jsp"></jsp:include>
 		

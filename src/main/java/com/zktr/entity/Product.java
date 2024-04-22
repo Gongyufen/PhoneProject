@@ -12,17 +12,26 @@ public class Product {
 	private String c_describe;//商品描述
 	private double c_rsprice;//商品价格
 	
-	private int c_mid;//商品详情id
+	private int c_mid;//商品型号id
 	private String c_aname;//规格名称
 	
 	private String c_gtails;
 	
 	private int c_rid;
+	private int c_did;//商品详情id
 	
 	private int c_gid;
 	
 	
 	
+	public int getC_did() {
+		return c_did;
+	}
+
+	public void setC_did(int c_did) {
+		this.c_did = c_did;
+	}
+
 	public int getC_gid() {
 		return c_gid;
 	}

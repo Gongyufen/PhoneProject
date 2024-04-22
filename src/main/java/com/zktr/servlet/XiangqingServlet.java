@@ -16,6 +16,8 @@ import com.zktr.dao.ProductDAO;
 public class XiangqingServlet extends HttpServlet {
 	private ProductDAO xiangqing = new ProductDAO();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("UTF-8");
 		int mid=Integer.parseInt(request.getParameter("mid"));
 		request.setAttribute("product", xiangqing.xiangqing(mid));
 		request.setAttribute("guige", xiangqing.xqguige(mid));

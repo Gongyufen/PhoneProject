@@ -25,6 +25,8 @@ public class CclassServlet extends HttpServlet {
 	private ModelDAO model = new ModelDAO();
 	private ProductDAO product = new ProductDAO();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("UTF-8");
 		List<Cclass> query = cclass.query();
 		request.setAttribute("cclass",query );
 		for(int i=0;i<query.size();i++) {
