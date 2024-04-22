@@ -76,15 +76,15 @@ public class IndentDAO extends BaseDAO{
 		String sql="SELECT * FROM z_indent_details "
 				+ "JOIN z_indent ON z_indent_details.z_iid=z_indent.z_iid "
 				+ "JOIN c_fombination ON c_fombination.c_rid=z_indent_details.c_rid "
-				+ "JOIN c_rprice ON c_rprice.c_rid=z_indent_details.c_rid "
-				+ "JOIN c_getails ON c_getails.c_gid=c_fombination.c_gid "
+				+ "JOIN c_rprice ON c_rprice.c_rid=z_indent_details.c_rid  "
+				+ "JOIN c_getails ON c_getails.c_gid=z_indent_details.z_ysid OR  c_getails.c_gid=z_indent_details.z_ncid "
 				+ "JOIN c_model ON z_indent_details.c_mid=c_model.c_mid "
 				+ "WHERE z_indent.z_iid=?";
 		return query(sql,new Mapper<Indent>() {
 		@Override
 		public List<Indent> map(ResultSet rs) throws SQLException {
 			List<Indent> list=new ArrayList<>();
-			while(rs.next()) {
+			if(rs.next()) {
 				Indent indent=new Indent(rs.getInt("z_indent_details.z_iid"),
 										rs.getString("c_mname"),
 										rs.getDouble("c_rprice.c_rsprice"),
@@ -154,9 +154,9 @@ public class IndentDAO extends BaseDAO{
 		},uid);
 	}
 	//新增订单详情
-	public int insertDdXq(int uid,int rid,String category,int numder,double price,int mid) {
-		String sql="insert into z_indent_details value(null,?,?,?,?,?,?)";
-		return execute(sql,maxIid(uid).get(0),rid,category,numder,price,mid);
+	public int insertDdXq(int uid,int rid,int ysid,int ncid,String category,int numder,double price,int mid) {
+		String sql="insert into z_indent_details value(null,?,?,?,?,?,?,?,?)";
+		return execute(sql,maxIid(uid).get(0),rid,ysid,ncid,category,numder,price,mid);
 	}
 	
 }
