@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-	.sidebar {
+.sidebar {
             position: fixed;
             top: 110px;
             left: 0;
@@ -50,249 +51,189 @@
         .sidebar ul ul li {
             margin-bottom: 10px;
         }
-        #hz2{
-	width: 100%;
-	height: 110px;
-	background-color: white;
-	line-height: 110px;
-}
-#hz2 h2{
-	padding: 0px;
-	padding-left: 295px;
-	margin-left: 0px;
-	display: flex;
-	align-items: center;
-	margin-top: 0px;
-}
-#xhz {
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    height: 80px;
-}
-#xhz form{
-	display: flex;
-	align-items: center;
-	height: 65px;
+	#shang{
+	width: 55%;
+	height: 105px;
+	margin-left: 20%;
+	margin-top: 15px;
 	background-color: #e1e1e1;
-	margin-top: -80px;
-	width: 100%;
-	border-radius: 3px;
-	margin-left: 275px;
 	border: 1px solid gray;
+	border-radius: 5px;
 }
-#xhz span{
-	margin: 20px;
+#shang form #yh{
+	padding-top: 20px;
+	padding-left: 25px;
 	font-size: 14px;
 }
-#xhz form .fy{
-	width: 40px;
+#shang form #yh input{
+	width: 135px;
+}
+#shang form #sj{
+	margin-top: -20px;
+	font-size: 14px;
+	margin-left: 297px;
+}
+#shang form #sj select{
+	width: 135px;
+}
+#shang form #b1{
+	display: inline-block;
+	width: 55px;
+	border: none;
+	border-radius: 5px;
+	margin-top: 20px;
+	background: #a1a1a1;
+	margin-left: 30px;
 	height: 25px;
 }
-#xhz form input{
-	 margin:-5px; 
-	 text-align: center;
+#shang form #b1:hover{
+	background-color:dimgray;
 }
-#xhz form .qd{
-	width: 60px;
-	height: 29px;
-	margin: 75px;
+#shang form #b2{
+	display: inline-block;
+	width: 55px;
+	border: none;
 	border-radius: 5px;
-	border: 0px;
-	background: darkgray;
+	background: #a1a1a1;
+	height: 25px;
+	margin-left: 20px;
 }
-#xhz form .qd:hover{
-	background-color: dimgray;
+#shang form #b2:hover{
+	background-color:dimgray;
 }
-p{
-	margin-top: 0px;
-	margin-left: 285px;
-	line-height: 14px;
-	padding: 9px;
-	padding-bottom: 20px;
-	font-size: 14px;
-}
-hr{
-	border: 1px solid transparent;
-	border-image: linear-gradient(to right,white ,black);
-	border-image-slice: 1; 
-}
-#big{
-	width: 100%;
-	height: 505px;
-	margin-top: -30px;
-	overflow: hidden;
-}
-#big #hz3{
-	width: 40.5%;
-    margin-left: 275px;
-    height: 170px;
-    margin-top: 0px;
-    float: left;
-    border-radius: 3px;
-    background: #e1e1e1;
-    border: 1px solid gray;
-}
-#big h2{
-	margin-left: 280px;
-	padding: 10px;
-	margin-top: 92px;
-	padding-left: 20px;
-	padding-top: 10px;
-}
-#big #hz3 p{
-	border: none;
-	margin-top: 33px;
-	margin-left: -10px;
-	writing-mode: vertical-rl;
-	writing-mode: vertical-rl;
-	text-orientation: upright;
-	white-space: nowrap;
-	width: 20px;
-	padding: 5px;
-	font-size: 14px;
-	top: 27px;
-	left: 1px;
-}
-#big #hz4 p{
-	border: none;
-	margin-top: 33px;
-	margin-left: -10px;
-	writing-mode: vertical-rl;
-	writing-mode: vertical-rl;
-	text-orientation: upright;
-	white-space: nowrap;
-	width: 20px;
-	padding: 5px;
-	font-size: 14px;
-	top: 27px;
-	left: 1px;
-}
-#big #hz5 p{
-	border: none;
-	margin-top: 42px;
-	margin-left: -10px;
-	writing-mode: vertical-rl;
-	writing-mode: vertical-rl;
-	text-orientation: upright;
-	white-space: nowrap;
-	width: 20px;
-	padding: 5px;
-	font-size: 14px;
-	top: 27px;
-	left: 1px;
-}
-#big #hz4{
-	width: 41%;
-    height: 170px;
-    margin-top: 0px;
-    float: right;
-    border-radius: 3px;
-    background: #e1e1e1;
-    border: 1px solid gray;
-}
-#big #hz5{
-	width: 100%;
-    margin-left: 276px;
-    height: 170px;
-    margin-top: 171px;
-    background-color: #e1e1e1;
-    border-radius: 3px;
-    border: 1px solid gray;
-    box-sizing: border-box;
-}
-#hz6 table {
+#xia table {
     width: 100%;
+	margin-top: 13px;
     border-collapse: collapse;
-	margin-top: 15px;
 }
-
-#hz6 th, #hz6 td {
+#xia th, #xia td {
     border: 1px solid #ccc; 
     padding: 8px;
     text-align: center;
 }
-
-#hz6 th {
+#xia th {
     background-color: #f2f2f2;
 }
-
-#hz6 tr:nth-child(even) {
+#xia tr:nth-child(even) {
     background-color: #f9f9f9;
 }
-
-#hz6 tr:hover {
+#xia tr:hover {
     background-color: #f1f1f1;
 }
-h1{
-	margin-bottom: 30px;
+#xia #tj{
+	width: 55px;
+	margin-top: 20px;
+	height: 30px;
+	border: none;
+	border-radius: 5px;
+	background: #a1a1a1;
+}
+#xia #sc{
+	width: 55px;
+	margin-top: 20px;
+	height: 30px;
+	border: none;
+	border-radius: 5px;
+	background: #a1a1a1;
+	margin-left: 15px;
+}
+#xia #sc:hover{
+	background-color:dimgray ;
+}
+#xia #tj:hover{
+	background-color: dimgray;
+}
+#xia table tr td button{
+	margin-right: 5px;
+	width: 40px;
+	border: none;
+	margin-top:15px;
+	border-radius: 5px;
+	background: #a1a1a1;
+	height: 30px;
+}
+#xia table tr td button:hover{
+	background-color:dimgray ;
+}
+#xia{
+	width: 54%;
+	height: 400px;
+	margin-top: 30px;
+	margin-left: 20%;
+	background-color: #e1e1e1;
+	border: 1px solid gray;
+	border-radius: 5px;
+	padding: 10px;
+	padding-top:0px;
+	overflow: auto;
 }
 </style>
 </head>
 <body>
 	<script src="../jquery2-3.5.1.min.js"></script>
 	<jsp:include page="../view/head.jsp" >
-	<jsp:param  name="name" value="${list.get(0).getZ_uname()}"/>
+	<jsp:param  name="name" value="${list.get(0).getC_did()}"/>
 	</jsp:include>
-	<p>欢迎使用后台系统</p>
-		<hr/>
-		<div id="hz2">
-			<h2>系统参数</h2>
-			<div id="xhz" >
-				<form>
-					<span>自定义颜色:</span><input type="color"/>
-					<input type="submit" value="确定"  class="qd" onclick="changeColor()"/>
-					<script>
-					    var colorButtons = document.getElementsByClassName('qd');
-					    for (var i = 0; i < colorButtons.length; i++) {
-					        colorButtons[i].addEventListener('click', function(event) {
-					            event.preventDefault();
-					            var colorInput = this.parentNode.querySelector('input[type="color"]');
-					            var selectedColor = colorInput.value;
-					            var divs = document.getElementsByClassName('changeColor');
-					            for (var j = 0; j < divs.length; j++) {
-					                divs[j].style.backgroundColor = selectedColor;
-					            }
-					        });
-					    }
-						function changeColor() {
-						    const selectedColor = document.querySelector('input[type="color"]').value;
-						    var divs = document.getElementsByClassName('changeColor');
-						    for (var j = 0; j < divs.length; j++) {
-						        divs[j].style.backgroundColor = selectedColor;
-						    }
-						    localStorage.setItem('selectedColor', selectedColor);
-						    location.reload(); 
-						}
-						document.addEventListener("DOMContentLoaded", function() {
-						    const selectedColor = localStorage.getItem('selectedColor');
-						    if (selectedColor) {
-						        var divs = document.getElementsByClassName('changeColor');
-						        for (var j = 0; j < divs.length; j++) {
-						            divs[j].style.backgroundColor = selectedColor;
-						        }
-						    }
-						});
-					</script>
-				</form>
+	<div id="shang">
+					<form action="ChaShangPinServlet" method="get">
+						<div id="yh"><span>上架时间：</span><input type="date" name="rq"/></div>
+						<div id="sj"><span>状态：</span>
+							<select name="zt">
+								<option value="0">0(待上架)</option>
+								<option value="1">1(已上架)</option>
+								<option value="2">2(未上架)</option>
+							</select>
+						</div>
+						<input type="submit" id="b1" value="搜索"/>
+						<input type="button" id="b2" value="清空"/>
+					</form>
 			</div>
-		</div>
-		<div id="big">
-			<h2>数据统计</h2>
-			<div id="hz3">
-				<p>商品价格榜</p>
+			<script type="text/javascript">
+		document.getElementById("b2").addEventListener("click", function() {
+	    document.querySelector('input[type="date"]').value = "";
+	});
+				</script>
+			<div id="xia">
+			<script type="text/javascript">
+			function editFunction() {
+			    const row = event.target.closest('tr'); 
+			    const id = row.cells[0].textContent; 
+			    const c_dtime = row.cells[1].textContent;
+			    const c_describe = row.cells[2].textContent;
+			    const c_dstate = row.cells[3].textContent; 
+			    sessionStorage.setItem('editId', id);
+			    sessionStorage.setItem('c_dtime', c_dtime);
+			    sessionStorage.setItem('c_dstate', c_dstate);
+			    sessionStorage.setItem('c_describe', c_describe);
+			    window.location.href = 'spbj.jsp'; // 假设这是你的编辑页面
+			}
+		</script>
+				<button id="tj">添加</button>
+				<table border="1">
+					<tr>
+						<th>编号</th>
+						<th>上架时间</th>
+						<th>状态</th>
+						<th>商品描述</th>
+						<th>操作</th>
+					</tr>
+					<c:forEach items="${list}" var="item">
+        <tr>
+            <td>${item.c_did}</td>
+           	<td>${item.c_dtime}</td>
+            <td>${item.c_dstate}</td>
+            <td>${item.c_describe}</td>
+            <td><button class="bj" onclick="editFunction()">编辑</button>
+          	<form action="SCShangpServlet" method="get">
+            <input type="hidden" name="id" value="${item.c_did}" />
+            <button type="submit" class="delete-btn">删除</button>
+        </form>
+            </td>
+        </tr>
+    </c:forEach>
+				</table>
 			</div>
-			<div id="hz4">
-				<p>商品上架时间榜</p>
-			</div>
-			<div id="hz5">
-				<p>商品售量榜</p>
-			</div>
-		</div>
-		<jsp:include page="../view/wei.jsp" >
-	<jsp:param  name="name" value="${list.get(0).getZ_uname()}"/>
-	</jsp:include>
-	<div class="sidebar changeColor" id="xx">
+			<div class="sidebar ss" id="xx">
 		         <ul>
 					 <li id="sy"><a href="sy.jsp">首页</a></li>
 					 <script>
@@ -344,14 +285,6 @@ h1{
 		                     		})
 		                     	})
 		                     </script>
-							 <li id="dd"><a href="#">订单</a></li>
-							 <script>
-		                     	$(function(){
-		                     		$("#dd").click(function(){
-		                     			window.location.href="dingdan";
-		                     		})
-		                     	})
-		                     </script>
 							 <li id="pl"><a href="#">评论</a></li>
 							 <script>
 		                     	$(function(){
@@ -360,8 +293,15 @@ h1{
 		                     		})
 		                     	})
 		                     </script>
+							 <script>
+		                     	$(function(){
+		                     		$("#dd").click(function(){
+		                     			window.location.href="dingdan";
+		                     		})
+		                     	})
+		                     </script>
 		                 </ul>
-					 <li><a href="#">个人中心</a></li>
+					  <li><a href="#">个人中心</a></li>
 		         </ul>
 		     </div>
 		     <script>
@@ -395,5 +335,8 @@ h1{
 			             });
 			         });
 			     </script>
+			<jsp:include page="../view/wei.jsp" >
+	<jsp:param  name="name" value="${list.get(0).getC_did()}"/>
+	</jsp:include>
 </body>
 </html>

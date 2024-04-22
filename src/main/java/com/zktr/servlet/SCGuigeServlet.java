@@ -8,23 +8,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.zktr.dao.UeasDAO;
+import com.zktr.dao.GuigeDAO;
 
 /**
- * Servlet implementation class SCuserServlet
+ * Servlet implementation class SCGuigeServlet
  */
-@WebServlet("/view/SCuserServlet")
-public class SCuserServlet extends HttpServlet {
+@WebServlet("/view/SCGuigeServlet")
+public class SCGuigeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UeasDAO uu=new UeasDAO();
+		GuigeDAO ff=new GuigeDAO();
 		int id=Integer.parseInt(request.getParameter("id"));
-		uu.delete(id);
-		request.getRequestDispatcher("user").forward(request, response);
+		ff.sc(id);
+		request.getRequestDispatcher("guige").forward(request, response);
 	}
 
 }

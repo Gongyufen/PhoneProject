@@ -118,7 +118,6 @@ function checkForm() {
     }
     return true;
 }
-</script>
-			
+</script>	
 </body>
 </html>

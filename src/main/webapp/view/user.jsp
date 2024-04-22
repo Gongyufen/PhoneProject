@@ -181,7 +181,7 @@
 			               var divs = document.getElementsByClassName('ss');
 			               for (var j = 0; j < divs.length; j++) {
 			                   divs[j].style.backgroundColor = selectedColor;
-			               }
+			               } 
 			           }
 			       });
 			</script>
@@ -191,7 +191,7 @@
 				<div id="shang">
 			<form action="ChaServlet" method="get">
 				<div id="yh"><span>用户名称：</span><input name="yhm" type="text" class="tt"/></div>
-				<div id="sj"><span>手机号码：</span><input name="sj" type="text" class="sj"/></div>
+				<div id="sj"><span>手机号码：</span><input name="sj" type="text" class="sj" maxlength="11"/></div>
 				<div id="zt">
 				<span>用户状态：</span>
 				<select class="zt" name="zt">
@@ -235,10 +235,6 @@
             <td>${item.z_phone}</td>
             <td>${item.z_state}</td>
             <td><button class="bj" onclick="editFunction()">编辑</button>
-             <form action="SCuserServlet" method="get">
-            <input type="hidden" name="id" value="${item.z_uid}" />
-            <button type="submit" class="delete-btn">删除</button>
-        </form>
         </tr>
     </c:forEach>
 </tr>	
@@ -287,7 +283,22 @@
 		                     		})
 		                     	})
 		                     </script>
-		                     <li><a href="#">商品规格</a></li>
+		                     <li id="gg"><a href="#">商品规格</a></li>
+		                     <script>
+		                     	$(function(){
+		                     		$("#gg").click(function(){
+		                     			window.location.href="guige";
+		                     		})
+		                     	})
+		                     </script>
+		                     <li id="xq"><a href="#">规格详情</a></li>
+		                     <script>
+		                     	$(function(){
+		                     		$("#xq").click(function(){
+		                     			window.location.href="guigexq";
+		                     		})
+		                     	})
+		                     </script>
 		                     <li id="fl"><a href="#">分类</a></li>
 		                     <script>
 		                     	$(function(){
@@ -296,11 +307,32 @@
 		                     		})
 		                     	})
 		                     </script>
-							 <li><a href="#">商品</a></li>
-							 <li><a href="#">订单</a></li>
-							 <li><a href="#">评论</a></li>
+							 <li id="sp"><a href="#">商品</a></li>
+							 <script>
+		                     	$(function(){
+		                     		$("#sp").click(function(){
+		                     			window.location.href="shangpin";
+		                     		})
+		                     	})
+		                     </script>
+							 <li id="dd"><a href="#">订单</a></li>
+							 <script>
+		                     	$(function(){
+		                     		$("#dd").click(function(){
+		                     			window.location.href="dingdan";
+		                     		})
+		                     	})
+		                     </script>
+							 <li id="pl"><a href="#">评论</a></li>
+							 <script>
+		                     	$(function(){
+		                     		$("#pl").click(function(){
+		                     			window.location.href="pinglun";
+		                     		})
+		                     	})
+		                     </script>
 		                 </ul>
-					 <li><a href="#">个人中心</a>
+					  <li><a href="#">个人中心</a></li>
 		         </ul>
 		     </div>
 		     <script>

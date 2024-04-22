@@ -1,60 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-.sidebar {
-            position: fixed;
-            top: 110px;
-            left: 0;
-            width: 200px;
-            height: 100%;
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            border-radius: 10px;
-			z-index: 1000;
-        }
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .sidebar li {
-            margin-bottom: 10px;
-        }
-        .sidebar a {
-            color: gray;
-            text-decoration: none;
-            display: block;
-            padding: 10px;
-            margin-top: 15px
-        }
-        .sidebar a:hover {
-            color: white;
-        }
-        .sub-menu {
-            display: none;
-            padding-left: 20px;
-        }
-        .sub-menu li {
-            margin-bottom: 5px;
-        }
-.sidebar ul ul {
-            display: none;
-            padding-left: 20px;
-        }
-        .sidebar ul ul li {
-            margin-bottom: 10px;
-        }
 	#shang{
-	width: 40%;
+	width: 55%;
 	height: 105px;
-	margin-left:30%;
+	margin-left: 20%;
 	margin-top: 15px;
 	background-color: #e1e1e1;
 	border: 1px solid gray;
@@ -64,6 +21,17 @@
 	padding-top: 20px;
 	padding-left: 25px;
 	font-size: 14px;
+}
+#shang form #yh input{
+	width: 165px;
+}
+#shang form #sj{
+	margin-top: -20px;
+	font-size: 14px;
+	margin-left: 297px;
+}
+#shang form #sj select{
+	width: 165px;
 }
 #shang form #b1{
 	display: inline-block;
@@ -117,7 +85,6 @@
 	border-radius: 5px;
 	background: #a1a1a1;
 }
-
 #xia #sc{
 	width: 55px;
 	margin-top: 20px;
@@ -140,16 +107,15 @@
 	border-radius: 5px;
 	background: #a1a1a1;
 	height: 30px;
-	margin-top: 15px;
 }
 #xia table tr td button:hover{
 	background-color:dimgray ;
 }
 #xia{
-	width: 39%;
+	width: 54%;
 	height: 400px;
 	margin-top: 30px;
-	margin-left: 30%;
+	margin-left: 20%;
 	background-color: #e1e1e1;
 	border: 1px solid gray;
 	border-radius: 5px;
@@ -157,63 +123,94 @@
 	padding-top:0px;
 	overflow: auto;
 }
+.sidebar {
+            position: fixed;
+            top: 110px;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+			z-index: 1000;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+        .sidebar a {
+            color: gray;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            margin-top: 15px
+        }
+        .sidebar a:hover {
+            color: white;
+        }
+        .sub-menu {
+            display: none;
+            padding-left: 20px;
+        }
+        .sub-menu li {
+            margin-bottom: 5px;
+        }
+.sidebar ul ul {
+            display: none;
+            padding-left: 20px;
+        }
+        .sidebar ul ul li {
+            margin-bottom: 10px;
+        }
 </style>
 </head>
 <body>
 	<script src="../jquery2-3.5.1.min.js"></script>
 	<jsp:include page="../view/head.jsp" >
-	<jsp:param  name="name" value="${list.get(0).getC_cid()}"/>
+	<jsp:param  name="name" value="${list.get(0).getZ_cid()}"/>
 	</jsp:include>
 	<div id="shang">
-					<form action="ChaFLServlet" method="get">
-						<div id="yh"><span>类别名称：</span><input type="text" name="lbm"/></div>
+					<form action="ChaPLServlet" method="get">
+						<div id="yh"><span>评论时间：</span><input type="datetime-local" name="rq"/></div>
+						<div id="sj"><span>评论等级：</span>
+						<select name="dj">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select></div>
 						<input type="submit" id="b1" value="搜索"/>
 						<input type="button" id="b2" value="清空"/>
 					</form>
-					<script type="text/javascript">
-				// 获取清空按钮元素
-				var clearButton = document.getElementById("b2");
-				// 为清空按钮添加点击事件
-				clearButton.addEventListener("click", function() {
-				    // 获取所有输入框元素
-				    var inputElements = document.querySelectorAll('input[type="text"]');
-				    // 遍历所有输入框元素，将值设为空
-				    inputElements.forEach(function(input) {
-				        input.value = "";
-				    });
-				});
-				</script>
 				</div>
 				<div id="xia">
-							<script type="text/javascript">
-							function editFunction() {
-							    const row = event.target.closest('tr'); 
-							    const id = row.cells[0].textContent; 
-							    const c_category = row.cells[1].textContent; 
-							    sessionStorage.setItem('editId', id);
-							    sessionStorage.setItem('editCategory', c_category);
-							    window.location.href = 'flbj.jsp';
-							}
-		</script>
 					<table border="1">
 						<tr>
 							<th>编号</th>
-							<th>类别名称</th>
+							<th>评论内容</th>
+							<th>评论时间</th>
+							<th>评论等级</th>
 							<th>操作</th>
 						</tr>
-						<tr>
-    	<c:forEach items="${list}" var="item">
+						<c:forEach items="${list}" var="item">
         <tr>
-            <td>${item.c_cid}</td>
-            <td>${item.c_category}</td>
-            <td><button class="bj" onclick="editFunction()">编辑</button>
-            <form action="SCflServlet" method="get">
-            <input type="hidden" name="id" value="${item.c_cid}" />
+            <td>${item.z_cid}</td>
+            <td>${item.z_content}</td>
+            <td><fmt:formatDate value="${item.z_time}" pattern="yyyy-MM-dd'T'HH:mm"/></td>
+            <td>${item.z_evaluation}</td>
+            <td>
+             <form action="SCPlServlet" method="get">
+            <input type="hidden" name="id" value="${item.z_cid}" />
             <button type="submit" class="delete-btn">删除</button>
         </form>
         </tr>
     </c:forEach>
-</tr>	
 					</table>
 				</div>
 				<div class="sidebar ss" id="xx">
@@ -236,7 +233,7 @@
 		                     		})
 		                     	})
 		                     </script>
-		                     <li id="gg"><a href="#">商品规格</a></li>
+		                    <li id="gg"><a href="#">商品规格</a></li>
 		                     <script>
 		                     	$(function(){
 		                     		$("#gg").click(function(){
@@ -268,14 +265,6 @@
 		                     		})
 		                     	})
 		                     </script>
-							 <li id="dd"><a href="#">订单</a></li>
-							 <script>
-		                     	$(function(){
-		                     		$("#dd").click(function(){
-		                     			window.location.href="dingdan";
-		                     		})
-		                     	})
-		                     </script>
 							 <li id="pl"><a href="#">评论</a></li>
 							 <script>
 		                     	$(function(){
@@ -284,14 +273,21 @@
 		                     		})
 		                     	})
 		                     </script>
+							 <script>
+		                     	$(function(){
+		                     		$("#dd").click(function(){
+		                     			window.location.href="dingdan";
+		                     		})
+		                     	})
+		                     </script>
 		                 </ul>
-					  <li><a href="#">个人中心</a></li>
+					 <li><a href="#">个人中心</a></li>
 		         </ul>
 		     </div>
-	<jsp:include page="../view/wei.jsp" >
-	<jsp:param  name="name" value="${list.get(0).getC_cid()}"/>
+				<jsp:include page="../view/wei.jsp" >
+	<jsp:param  name="name" value="${list.get(0).getZ_cid()}"/>
 	</jsp:include>
-		     <script>
+	 <script>
 		     const side = document.getElementById('xx');
 				
 				// 监听页面滚动事件

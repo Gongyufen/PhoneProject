@@ -69,7 +69,7 @@
 			</script>
 		</div>
 		<div id="wei">
-		<script type="text/javascript">
+		<script type="text/javascript"> 
 		function closeWindow() {
 		    window.history.back();
 		    window.close();
