@@ -22,8 +22,7 @@ public class UeasDAO extends BaseDAO{
 	                        rs.getString("z_esx"),
 	                        rs.getString("z_phone"),
 	                        rs.getString("z_avatar"),
-	                        rs.getInt("z_state"),
-	                        rs.getString("c_mname")
+	                        rs.getInt("z_state")
 	                );
 	                list.add(ueas);
 	            }
@@ -44,8 +43,7 @@ public class UeasDAO extends BaseDAO{
 	                        rs.getString("z_esx"),
 	                        rs.getString("z_phone"),
 	                        rs.getString("z_avatar"),
-	                        rs.getInt("z_state"),
-	                        rs.getString("c_mname"));
+	                        rs.getInt("z_state"));
 					list.add(uu);
 				}
 				return list;

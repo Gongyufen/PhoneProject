@@ -8,7 +8,6 @@ public class Ueas {
 	private String z_phone;
 	private String z_avatar;
 	private int z_state;
-	private String c_mname;
 	public int getZ_uid() {
 		return z_uid;
 	}
@@ -51,14 +50,8 @@ public class Ueas {
 	public void setZ_state(int z_state) {
 		this.z_state = z_state;
 	}
-	public String getC_mname() {
-		return c_mname;
-	}
-	public void setC_mname(String c_mname) {
-		this.c_mname = c_mname;
-	}
-	public Ueas(int z_uid, String z_uname, String z_pass, String z_esx, String z_phone, String z_avatar, int z_state,
-			String c_mname) {
+	public Ueas(int z_uid, String z_uname, String z_pass, String z_esx, String z_phone, String z_avatar, int z_state
+			) {
 		super();
 		this.z_uid = z_uid;
 		this.z_uname = z_uname;
@@ -67,13 +60,11 @@ public class Ueas {
 		this.z_phone = z_phone;
 		this.z_avatar = z_avatar;
 		this.z_state = z_state;
-		this.c_mname = c_mname;
 	}
 	public Ueas() {
 		super();
 	}
-	public Ueas(String z_uname, String z_pass, String z_esx, String z_phone, String z_avatar, int z_state,
-			String c_mname) {
+	public Ueas(String z_uname, String z_pass, String z_esx, String z_phone, String z_avatar, int z_state) {
 		super();
 		this.z_uname = z_uname;
 		this.z_pass = z_pass;
@@ -81,7 +72,6 @@ public class Ueas {
 		this.z_phone = z_phone;
 		this.z_avatar = z_avatar;
 		this.z_state = z_state;
-		this.c_mname = c_mname;
 	}
 	
 }
