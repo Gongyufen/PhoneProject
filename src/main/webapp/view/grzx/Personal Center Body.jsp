@@ -120,7 +120,7 @@
 				margin-bottom: 20px;
 			}
 		</style>
-		<script src="../../jquery-3.5.1.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
 		<script>
 			$(function(){
 				$("#dz").click(function(){
@@ -306,7 +306,7 @@
 						<div id="xbox" style="width: 250px;border-radius: 10px;margin: 350px auto 0;padding: 10px;background-color: white;text-align: center;">
 							<img src="../img/x (2).png" id="x" style="float: right;">
 							<span style="font-size: 10px;float: left;">头像修改(仅支持JPG/JPEG、PNG图片格式)</span>
-							<form action="../XgTxServlet" method="post" enctype="multipart/form-data">
+							<form action="XgTxServlet" method="post" enctype="multipart/form-data">
 						        <!-- 自定义上传按钮 -->
 						        <label for="fileInput" class="custom-file-upload">上传头像</label>
 						        <!-- 实际的文件选择输入框 -->

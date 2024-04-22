@@ -155,17 +155,33 @@ select{
 										<img src="../img/${xqsp.getTup() }" style="float:left;width: 80px;height: 80px;"/>
 										${xqsp.getC_mname() }
 											${xqsp.getColor() }
+											<span style="display: none;" id="did"> ${xqsp.getDid() }</span>
 											${xqsp.getNc() }*${xqsp.getZ_number()}
 									</td>
 									<td>
 										单价：${xqsp.getC_rsprice()}<br/>
 										小计：${xqsp.getC_rsprice()*xqsp.getZ_number()}
 									</td>
+									<td>
+									<c:if test="${ddxq.get(0).get(0).getZ_status().equals(\"完成交易\") }">
+								<button class="pl" style="padding: 5px 15px;background-color: #f1f1f1;border: 1px solid #a1a1a1;">去评论</button>
+								<script type="text/javascript">
+									$(function() {
+										$(".pl").click(function() {
+											$(".did").val($("#did").html());
+											$("#bigbox-pl").css("display","block");
+										})
+									})
+								</script>
+							</c:if>
+										
+									</td>
 								</tr>
 							</c:forEach>
 							</c:forEach>
 							
 						</table>
+						
 					</div>
 					
 					<div class="order">
@@ -190,10 +206,13 @@ select{
 								<script type="text/javascript">
 									$(function() {
 										$(".xg").click(function() {
+											
 											$("#bigbox-diz").css("display","block");
 										})
 									})
 								</script>
+								<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+								<script src="https://cdn.bootcss.com/distpicker/2.0.1/distpicker.js"></script>
 							</c:if>
 						</div>
 					</div>
@@ -239,20 +258,19 @@ select{
 				
 			</div>
 		</div>
-		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
-		<script src="https://cdn.bootcss.com/distpicker/2.0.1/distpicker.js"></script>
+		
+		<!-- 修改地址 -->
 		<div id="bigbox-diz" style="position:absolute;top:0;left:0; display: none;width: 100%;height: 100%;background:rgba(0, 0, 0, 0.5);">
-						<div id="xbox" style="width: 700px; overflow: hidden; border-radius: 10px;margin: 350px auto 0;padding: 10px;background-color: white;text-align: center;">
-							<span>修改订单地址</span>
-							<img src="../img/x (2).png" id="x" style="float: right;">
-						<div id="shdz" class="xg" data-toggle="distpicker" data-autoselect="3">
+			<div id="xbox" style="width: 700px; overflow: hidden; border-radius: 10px;margin: 350px auto 0;padding: 10px;background-color: white;text-align: center;">
+				<span>修改订单地址</span>
+				<img src="../img/x (2).png" id="x" style="float: right;">
+				<div id="shdz" class="xg" data-toggle="distpicker" data-autoselect="3">
 					<form method="get" action="DindanDizServlet">
-					<br/>
-					<input value="${ddxq.get(0).get(0).getZ_iid() }" name="id" style="display: none;">
+						<br/>
+						<input value="${ddxq.get(0).get(0).getZ_iid() }" name="id" style="display: none;">
 						<input style=" margin:0 auto;" name="name" placeholder="请输入收件人姓名" id="xgname"/>
 						<br/>
 						<input name="phone" placeholder="请输入收件人电话" id="xgdh" style="margin:0 aotu;"/><br />
-
 						<br/>
 						<div class="select" id="sbox" style="margin:0 aotu;">
 							省：<select id="xgs"  v-model="work.province" name="shen"></select>
@@ -263,52 +281,82 @@ select{
 						<div class="select" id="qbox">
 							区：<select id="xgq" v-model="work.area" name="qu"></select>
 						</div> 
-						
-					<input style="width: 500px;margin:0 aotu;" name="xxdiz" id="xgxxdiz" placeholder="请输入详细地址" /><br/>
+						<input style="width: 500px;margin:0 aotu;" name="xxdiz" id="xgxxdiz" placeholder="请输入详细地址" /><br/>
 						<input type="submit" id="ok" value="确认修改"/>
 					</form>
 				</div>
-							<script>
-						        $(function() {
-						        	$("#ok").click(function(){
-										var name=$("#name").val();
-										var phone=$("#phone").val();
-										var s=$("#s").val();
-										var c=$("#c").val();
-										var q=$("#q").val();
-										var xxdz=$("#xxdiz").val();
-										if(name==""){
-											alert("请输入收货人姓名");
-											return false;
-										}
-										if(s==""){
-											alert("请选择省份");
-											return false;
-										}
-										if(c==""){
-											alert("请选择城市");
-											return false;
-										}
-										if(q==""){
-											alert("请选择区");
-											return false;
-										}
-										if(xxdz==""){
-											alert("请输入详细地址");
-											return false;
-										}
-										if(phone.val().length!=11){
-											alert("请输入11位的手机号");
-											return false;
-										}
-									})
-									$("#x").click(function() {                                                                                                                                                                                                                                                                                                                                                                             
-										$(this).parent().parent().css("display","none");
-									})
-								})
-						    </script>
-						</div>
-					</div>
+				<script>
+					$(function() {
+				        $("#ok").click(function(){
+							var name=$("#name").val();
+							var phone=$("#phone").val();
+							var s=$("#s").val();
+							var c=$("#c").val();
+							var q=$("#q").val();
+							var xxdz=$("#xxdiz").val();
+							if(name==""){
+								alert("请输入收货人姓名");
+								return false;
+							}
+							if(s==""){
+								alert("请选择省份");
+								return false;
+							}
+							if(c==""){
+								alert("请选择城市");
+								return false;
+							}
+							if(q==""){
+								alert("请选择区");
+								return false;
+							}
+							if(xxdz==""){
+								alert("请输入详细地址");
+								return false;
+							}
+							if(phone.val().length!=11){
+								alert("请输入11位的手机号");
+								return false;
+							}
+						})
+						$("#x").click(function() {                                                                                                                                                                                                                                                                                                                                                                             
+							$(this).parent().parent().css("display","none");
+						})
+					})
+				</script>
+			</div>
+		</div>
+		<!-- 评论 -->
+		<div id="bigbox-pl" style="position:absolute;top:0;left:0; display: none;width: 100%;height: 100%;background:rgba(0, 0, 0, 0.5);">
+			<div id="xbox" style="width: 500px; height:200px; overflow: hidden; border-radius: 10px;margin: 350px auto 0;padding: 10px;background-color: white;text-align: center;">
+				<span>评论</span>
+				<img src="../img/x (2).png" id="xpl" style="float: right;">
+				<div id="shdz" class="xg" data-toggle="distpicker" data-autoselect="3">
+					<form method="get" action="PinglunServlet">
+						<br/>
+						满意度:
+						<select name="pj" id="pj">
+							<option value="1">很不满意</option>
+							<option value="2">不满意</option>
+							<option value="3">一般</option>
+							<option value="4">满意</option>
+							<option value="5">很满意</option>
+						</select>
+						<input name="iid" style="display: none;" value="${ ddxq.get(0).get(0).getZ_iid()}">
+						<input name="did" class="did" style="display: none;">
+						<textarea style="margin: 20px 0" id="message" name="message" rows="4" cols="50"></textarea><br>
+						<input type="submit" id="ok" value="发布评论"/>
+					</form>
+				</div>
+				<script>
+			       $(function() {
+						$("#xpl").click(function() {                                                                                                                                                                                                                                                                                                                                                                             
+							$(this).parent().parent().css("display","none");
+						})
+					})
+				</script>
+			</div>
+		</div>
 		<jsp:include page="../di.jsp" ></jsp:include>
 	</body>
 </html>

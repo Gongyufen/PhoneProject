@@ -1,43 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>首页</title>
-<link type="text/css" rel="stylesheet" href="../css/shouye.css"/>
-<link type="text/css" rel="stylesheet" href="../css/head.css"/>
-<link type="text/css" rel="stylesheet" href="../css/di.css"/>
+<link type="text/css" rel="stylesheet" href="../css/shouye.css" />
+<link type="text/css" rel="stylesheet" href="../css/head.css" />
+<link type="text/css" rel="stylesheet" href="../css/di.css" />
 </head>
 <body>
 	<section id="one"></section>
-		<jsp:include page="head.jsp" >
-			<jsp:param  name="name" value="${list.get(0).getZ_uname()}"/>
-		</jsp:include>
-		
-		
-		<div id="lunbotu">
-			<!-- 轮播图1 -->
-			<div class="lbt">
-			    <div class="tupian">
-			        <img src="../img/1.webp" alt="Image 1">
-			    </div>
-			    <div class="tupian">
-			        <img src="../img/2.webp" alt="Image 2">
-			    </div>
-			    <div class="tupian">
-			        <img src="../img/3.webp" alt="Image 3">
-			    </div>
-			
-			    <div class="yuandian">
-			        <span class="yd"></span>
-			        <span class="yd"></span>
-			        <span class="yd"></span>
-			    </div>
+	<jsp:include page="head.jsp">
+		<jsp:param name="name" value="${list.get(0).getZ_uname()}" />
+	</jsp:include>
+
+
+	<div id="lunbotu">
+		<!-- 轮播图1 -->
+		<div class="lbt">
+			<div class="tupian">
+				<img src="../img/1.webp" alt="Image 1">
 			</div>
-			
-			<script>
+			<div class="tupian">
+				<img src="../img/2.webp" alt="Image 2">
+			</div>
+			<div class="tupian">
+				<img src="../img/3.webp" alt="Image 3">
+			</div>
+
+			<div class="yuandian">
+				<span class="yd"></span> <span class="yd"></span> <span class="yd"></span>
+			</div>
+		</div>
+
+		<script>
 			    let tupianIndex = 0;
 			    let shijian;
 			
@@ -70,10 +68,10 @@
 			        };
 			    }
 			</script>
-			<!-- 轮播图2 -->
-			<script type="text/javascript" src="../jquery-3.5.1.min.js"></script>
-			
-			<div id="fenlei">
+		<!-- 轮播图2 -->
+		<script type="text/javascript" src="../jquery-3.5.1.min.js"></script>
+
+		<div id="fenlei">
 			<script>
 				$(function(){
 					var shuju=$(".a");
@@ -95,72 +93,86 @@
 					})
 				})
 			</script>
-				<div id="leione">
-					<c:forEach items="${cclass}" var="p">
-						<div id="shuju" class="a">${p.category }<div style="float: right;">></div>
-							
-						</div>
-					</c:forEach>
-				</div>
-				
-				<div id="leitwo" class="model0" >
-					<c:forEach items="${model0}" var="m">
-						<div id="shuju"><img src="/img/图标.png"/>${m.mname }</div>
-					</c:forEach>
-				</div>
-				<div id="leitwo" class="model1" >
-					<c:forEach items="${model1}" var="m">
-						<div id="shuju"><img src="/img/图标.png"/>${m.mname }</div>
-					</c:forEach>
-				</div>
-				<div id="leitwo" class="model2">
-					<c:forEach items="${model2}" var="m">
-						<div id="shuju"><img src="/img/图标.png"/>${m.mname }</div>
-					</c:forEach>
-				</div>
-				<div id="leitwo" class="model3">
-					<c:forEach items="${model3}" var="m">
-						<div id="shuju"><img src="/img/图标.png"/>${m.mname }</div>
-					</c:forEach>
-				</div>
-				<div id="leitwo" class="model4" >
-					<c:forEach items="${model4}" var="m">
-						<div id="shuju"><img src="/img/图标.png"/>${m.mname }</div>
-					</c:forEach>
-				</div>
-				<div id="leitwo" class="model5" >
-					<c:forEach items="${model5}" var="m">
-						<div id="shuju"><img src="/img/图标.png"/>${m.mname }</div>
-					</c:forEach>
-				</div>
-				<div id="leitwo" class="model6" >
-					<c:forEach items="${model6}" var="m">
-						<div id="shuju"><img src="/img/图标.png"/>${m.mname }</div>
-					</c:forEach>
-				</div>
-				<div id="leitwo" class="model7" >
-					<c:forEach items="${model7}" var="m">
-						<div id="shuju"><img src="/img/图标.png"/>${m.mname }</div>
-					</c:forEach>
-				</div>
-				<div id="leitwo" class="model8" >
-					<c:forEach items="${model8}" var="m">
-						<div id="shuju"><img src="/img/图标.png"/>${m.mname }</div>
-					</c:forEach>
-				</div>
-				<div id="leitwo" class="model9" >
-					<c:forEach items="${model9}" var="m">
-						<div id="shuju"><img src="/img/图标.png"/>${m.mname }</div>
-					</c:forEach>
-				</div>
-				
+			<div id="leione">
+				<c:forEach items="${cclass}" var="p">
+					<div id="shuju" class="a">${p.category }<div
+							style="float: right;">></div>
+
+					</div>
+				</c:forEach>
 			</div>
-			
-			
+
+			<div id="leitwo" class="model0">
+				<c:forEach items="${model0}" var="m">
+					<div id="shuju">
+						<img src="/img/图标.png" />${m.mname }</div>
+				</c:forEach>
+			</div>
+			<div id="leitwo" class="model1">
+				<c:forEach items="${model1}" var="m">
+					<div id="shuju">
+						<img src="/img/图标.png" />${m.mname }</div>
+				</c:forEach>
+			</div>
+			<div id="leitwo" class="model2">
+				<c:forEach items="${model2}" var="m">
+					<div id="shuju">
+						<img src="/img/图标.png" />${m.mname }</div>
+				</c:forEach>
+			</div>
+			<div id="leitwo" class="model3">
+				<c:forEach items="${model3}" var="m">
+					<div id="shuju">
+						<img src="/img/图标.png" />${m.mname }</div>
+				</c:forEach>
+			</div>
+			<div id="leitwo" class="model4">
+				<c:forEach items="${model4}" var="m">
+					<div id="shuju">
+						<img src="/img/图标.png" />${m.mname }</div>
+				</c:forEach>
+			</div>
+			<div id="leitwo" class="model5">
+				<c:forEach items="${model5}" var="m">
+					<div id="shuju">
+						<img src="/img/图标.png" />${m.mname }</div>
+				</c:forEach>
+			</div>
+			<div id="leitwo" class="model6">
+				<c:forEach items="${model6}" var="m">
+					<div id="shuju">
+						<img src="/img/图标.png" />${m.mname }</div>
+				</c:forEach>
+			</div>
+			<div id="leitwo" class="model7">
+				<c:forEach items="${model7}" var="m">
+					<div id="shuju">
+						<img src="/img/图标.png" />${m.mname }</div>
+				</c:forEach>
+			</div>
+			<div id="leitwo" class="model8">
+				<c:forEach items="${model8}" var="m">
+					<div id="shuju">
+						<img src="/img/图标.png" />${m.mname }</div>
+				</c:forEach>
+			</div>
+			<div id="leitwo" class="model9">
+				<c:forEach items="${model9}" var="m">
+					<div id="shuju">
+						<img src="/img/图标.png" />${m.mname }</div>
+				</c:forEach>
+			</div>
+
 		</div>
-		<!-- 锚链接1 -->
-			<a href="#one" class="tiaozhuan"><button id="maolianjie" class="maolianjie"><img src="../img/收缩上箭头.png" />返回顶部</button></a>
-		<script>
+
+
+	</div>
+	<!-- 锚链接1 -->
+	<a href="#one" class="tiaozhuan"><button id="maolianjie"
+			class="maolianjie">
+			<img src="../img/收缩上箭头.png" />返回顶部
+		</button></a>
+	<script>
 		    document.querySelectorAll('.tiaozhuan').forEach(anchor => {
 		        anchor.addEventListener('click', function(e) {
 		            e.preventDefault();
@@ -188,234 +200,55 @@
 						        }
 						    };
 		</script>
-		<!-- 锚链接2 -->
-		
-		<div id="box">
-			<p id="biaoti">最新上架</p>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-		</div>
-		
-		<div id="remai">
-			<p id="biaoti">热卖商品</p>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-		</div>
-		
-		
+	<!-- 锚链接2 -->
+
+	<div id="box">
+		<p id="biaoti">最新上架</p>
+		<div id="shangpin"></div>
+		<div id="shangpin"></div>
+		<div id="shangpin"></div>
+		<div id="shangpin"></div>
+		<div id="shangpin"></div>
+	</div>
+
+	<div id="remai">
+		<p id="biaoti">热卖商品</p>
+		<div id="shangpin"></div>
+		<div id="shangpin"></div>
+		<div id="shangpin"></div>
+		<div id="shangpin"></div>
+		<div id="shangpin"></div>
+	</div>
+
+	<c:forEach items="${cclass}" var="c" varStatus="index">
 		<div id="hezi">
-			<p id="biaoti">OPPO</p>
+			<p id="biaoti">${c.category }</p>
+			<c:forEach items="${product[index.index]}" var="p">
+				<div id="shangpin" class="shangpin" as = '${p}'>
+					<div class="img">
+						<img style="width: 100%; height: 100%;" src="../img/1.1千山绿.png" />
+					</div>
+					<div class="zi">
+					<span class="id" style="display: none;">${p.getC_mid() }</span>
+						${p.c_mname }<br /> <span class="js">${p.c_describe }</span><br />
+						<span class="jg">￥${p.c_rsprice }</span>
+					</div>
+				</div>
 				
-					
-					<c:forEach items="${product}" var="p">
-						<div id="shangpin">
-							<div class="img"><img style="width: 100%; height: 100%;" src="../img/1.1千山绿.png"/></div>
-								<div class="zi">
-								${p.c_mname }<br/>
-								<span class="js">${p.c_describe }</span><br/>
-								<span class="jg">￥${p.c_rsprice }</span>
-							</div>
-						</div>
-					</c:forEach>
+				
+			</c:forEach>
 		</div>
-		
-		<div id="hezi">
-			<p id="biaoti">HUAWEI</p>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-		</div>
-		
-		<div id="hezi">
-			<p id="biaoti">vivo</p>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-		</div>
-		
-		<div id="hezi">
-			<p id="biaoti">iQOO</p>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-		</div>
-		
-		<div id="hezi">
-			<p id="biaoti">Apple</p>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-		</div>
-		
-		<div id="hezi">
-			<p id="biaoti">小米</p>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-		</div>
-		
-		<div id="hezi">
-			<p id="biaoti">荣耀</p>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-		</div>
-		
-		<div id="hezi">
-			<p id="biaoti">三星</p>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-		</div>
-		
-		<div id="hezi">
-			<p id="biaoti">真我</p>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-		</div>
-		
-		<div id="hezi">
-			<p id="biaoti">魅族</p>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-				<div id="shangpin">
-					
-				</div>
-		</div>
-		<jsp:include page="di.jsp" ></jsp:include>
-		
+	</c:forEach>
+	<script type="text/javascript" src="../jquery-3.5.1.min.js"></script>
+				<script>
+					$(function() {
+						$(".shangpin").click(function() {
+							var mid=$(this).find(".zi").find(".id").text();
+							window.location.href="XiangqingServlet?mid="+mid;
+						})
+					})
+				</script>
+	<jsp:include page="di.jsp"></jsp:include>
+
 </body>
 </html>

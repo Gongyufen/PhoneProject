@@ -1,0 +1,264 @@
+@charset "UTF-8";
+#xiangqing{
+	margin: 0 auto;
+	margin-top: 30px;
+	width: 1230px;
+	height: 700px;
+	/* background-color: lightcyan; */
+}
+#xiangqing #tupianhezi{
+	width: 600px;
+	height: 700px;
+	float: left;
+}
+#xiangqing #tupian{
+	margin: 10px 0px 10px 20px;
+	width: 560px;
+	height: 560px;
+}
+#tupian img{
+	width: 100%;
+	height: 560px;
+	margin: 0 auto;
+	background-size: 100%;
+}
+#xiangqing #tupiancolor{
+	width: 550px;
+	height: 100px;
+	margin: 0 auto;
+}
+#tupiancolor .zuojiantou{
+	width: 50px;
+	height: 50px;
+	margin-top: 25px;
+	float: left;
+	border: none;
+	border-radius: 30px 30px 30px 30px;
+	background-color: white;
+}
+.zuojiantou img{
+	transform: rotate(180deg);
+}
+#tupiancolor img:hover{
+	cursor: pointer;
+}
+#tupiancolor .tupianwenjian{
+	width: 450px;
+	height: 80px;
+	margin-top: 10px;
+	float: left;
+}
+.tupianwenjian li{
+	width: 80px;
+	height: 80px;
+	float: left;
+	margin-left: 8px;
+}
+.tupianwenjian li img{
+	width: 100%;
+}
+#tupiancolor .youjiantou{
+	width: 50px;
+	height: 50px;
+	margin-top: 25px;
+	float: left;
+	border: none;
+	background-color: white;
+}
+#xiangqing #neirong{
+	margin: 10px 10px 10px 0px;
+	width: 600px;
+	height: 530px;
+	float: right;
+}
+#neirong #mingcheng{
+	height: 170px;
+}
+#mingcheng .mc{
+	height: 40px;
+	font-size: 22px;
+	line-height: 40px;
+}
+#mingcheng .ms{
+	height: 70px;
+	margin-top: 10px;
+	font-size: 14px;
+}
+#mingcheng .jg{
+	height: 40px;
+	margin-top: 10px;
+	font-size: 30px;
+	color: #d42342;
+	line-height: 40px;
+}
+#neirong .yanse{
+	width: 600px;
+	height: 200px;
+}
+.yanse p{
+	font-size: 20px;
+	margin: 20px 0 10px 10px;
+}
+.yanse .xuanzhe{
+	width: 286px;
+	height: 50px;
+	margin: 10px 0 0 10px;
+	float: left;
+	text-align: center;
+	line-height: 50px;
+	border-radius: 8px;
+	background-color: white;
+	border: 1px solid lightgray;
+}
+.selected {
+	width: 286px;
+	height: 50px;
+	margin: 10px 0 0 10px;
+	float: left;
+	text-align: center;
+	line-height: 50px;
+	border-radius: 8px;
+	background-color: white;
+	border: 2px solid red;
+}
+.yanse .xuanzhe:hover{
+	cursor: pointer;
+	border-color: red;
+} 
+#neirong #banben{
+	width: 600px;
+	height: 160px;
+}
+#banben p{
+	font-size: 20px;
+	margin: 0 0 10px 10px;
+}
+#banben .xuanxiang{
+	width: 288px;
+	height: 50px;
+	margin: 10px 0 0 10px;
+	float: left;
+	text-align: center;
+	line-height: 50px;
+	border-radius: 8px;
+	background-color: white;
+	border: 1px solid lightgray;
+}
+#banben .xuanxiang:hover{
+	cursor: pointer;
+	border-color: red;
+}
+#neirong #goumai{
+	width: 600px;
+	height: 70px;
+	padding-top: 40px;
+}
+#goumai .gmone{
+	width: 100px;
+	height: 50px;
+	float: left;
+	margin-left: 10px;
+}
+.gmone .one{
+	width: 30px;
+	height: 30px;
+	float: left;
+	margin-top: 10px;
+	font-size: 24px;
+	color: #a6a6a6;
+	background-color: white;
+	border-radius: 50px;
+	border: 1px solid lightgray;
+}
+.gmone .one:hover{
+	cursor: pointer;
+}
+.gmone .two{
+	float: left;
+	margin: 15px 0 0 15px;
+}
+.gmone .three{
+	width: 30px;
+	height: 30px;
+	float: right;
+	margin-top: 10px;
+	font-size: 24px;
+	color: black;
+	background-color: white;
+	border-radius: 50px;
+	border: 1px solid lightgray;
+}
+.gmone .three:hover{
+	cursor: pointer;
+}
+#goumai .gmtwo{
+	width: 200px;
+	height: 50px;
+	font-size: 18px;
+	color: white;
+	float: left;
+	margin-left: 40px;
+	border-radius: 25px;
+	background-color: red;
+	border: none;
+}
+#goumai .gmtwo:hover{
+	cursor: pointer;
+}
+#goumai .gmthree{
+	width: 200px;
+	height: 50px;
+	font-size: 18px;
+	color: white;
+	float: left;
+	margin-left: 20px;
+	border-radius: 25px;
+	background-color: orange;
+	border: none;
+}
+#goumai .gmthree:hover{
+	cursor: pointer;
+}
+#pinglun{
+	margin: 0 auto;
+	width: 1230px;
+	height: 820px;
+	margin-top: 50px;
+	background-color: #FFCCCC;
+}
+#pinglun #yonghu{
+	width: 1200px;
+	height: 150px;
+	float: left;
+	margin: 10px 0px 0px 10px;
+	background-color: #CCFFFF;
+}
+#yonghu #touxiang{
+	width: 80px;
+	height: 80px;
+	float: left;
+	margin: 35px 0px 0px 30px;
+	background-color: #FFCC99;
+	border-radius: 50%;
+}
+#yonghu #neirong{
+	width: 1000px;
+	height: 100px;
+	float: right;
+	margin: 25px 10px 0px 0px;
+	background-color: lightskyblue;
+}
+#fenye{
+	margin: 0 auto;
+	margin-top: 10px;
+	width: 1230px;
+	height: 100px;
+	background-color: #CCFFFF;
+}
+#fenye #neirong{
+	width: 450px;
+	height: 50px;
+	float: right;
+	margin-top: 25px;
+	background-color: #FFCC99;
+}

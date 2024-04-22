@@ -1,5 +1,7 @@
 package com.zktr.entity;
 
+import java.sql.Timestamp;
+
 /**
 * @Description: 
 * @author: ccy
@@ -12,6 +14,59 @@ public class Product {
 	private String c_describe;//商品描述
 	private double c_rsprice;//商品价格
 	
+	private int c_mid;//商品详情id
+	private String c_aname;//规格名称
+	
+	private String c_gtails;
+	
+	private int c_rid;
+	
+	private int c_gid;
+
+
+	public int getC_gid() {
+		return c_gid;
+	}
+
+	public void setC_gid(int c_gid) {
+		this.c_gid = c_gid;
+	}
+
+	public int getC_rid() {
+		return c_rid;
+	}
+
+	public void setC_rid(int c_rid) {
+		this.c_rid = c_rid;
+	}
+
+	public String getC_gtails() {
+		return c_gtails;
+	}
+
+	public void setC_gtails(String c_gtails) {
+		this.c_gtails = c_gtails;
+	}
+
+	public int getC_mid() {
+		return c_mid;
+	}
+
+	public void setC_mid(int c_mid) {
+		this.c_mid = c_mid;
+	}
+
+	public String getC_aname() {
+		return c_aname;
+	}
+
+	public void setC_aname(String c_aname) {
+		this.c_aname = c_aname;
+	}
+
+	
+	
+	//商品信息表
 	public Product(String c_groute, String c_mname, String c_describe, double c_rsprice) {
 		super();
 		this.c_groute = c_groute;

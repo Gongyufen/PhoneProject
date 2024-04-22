@@ -24,7 +24,14 @@ public class Indent {
 	private String z_consignee;
 	private String z_address;
 	private String z_phone;
+	private int did;
 	
+	public int getDid() {
+		return did;
+	}
+	public void setDid(int did) {
+		this.did = did;
+	}
 	public String getZ_consignee() {
 		return z_consignee;
 	}

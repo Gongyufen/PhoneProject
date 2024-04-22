@@ -21,27 +21,28 @@ public class DengluServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		 response.setCharacterEncoding("UTF-8");
 		 response.setContentType("text/html;charset=UTF-8");
-		 if (request.getParameter("name")!=null&&request.getParameter("pas")!=null) {
-			String name=request.getParameter("name");
-			String pas=request.getParameter("pas");
-			UeasDAO usersdao = new UeasDAO();
-			HttpSession session=request.getSession();
-			PrintWriter out = response.getWriter();
-			if (usersdao.select(name, pas).size()!=0) {
-				session.setAttribute("list",usersdao.select(name,pas));
-				System.out.println(usersdao.select(name,pas));
-				session.setAttribute("id",usersdao.select(name,pas).get(0).getZ_uid());
-				
-			}else {
-				request.setAttribute("pd","登陆失败");
-				request.getRequestDispatcher("denglu.jsp").forward(request, response);
-			}
-		}
+		 
 		if (request.getParameter("grzx")!=null) {
 				request.getRequestDispatcher("grzx/Personal Center Body.jsp").forward(request, response);
-			}else {
+		}else {
+				if (request.getParameter("name")!=null&&request.getParameter("pas")!=null) {
+					String name=request.getParameter("name");
+					String pas=request.getParameter("pas");
+					UeasDAO usersdao = new UeasDAO();
+					HttpSession session=request.getSession();
+					PrintWriter out = response.getWriter();
+					if (usersdao.select(name, pas).size()!=0) {
+						session.setAttribute("list",usersdao.select(name,pas));
+						System.out.println(usersdao.select(name,pas));
+						session.setAttribute("id",usersdao.select(name,pas).get(0).getZ_uid());
+						
+					}else {
+						request.setAttribute("pd","登陆失败");
+						request.getRequestDispatcher("denglu.jsp").forward(request, response);
+					}
+				}
 				request.getRequestDispatcher("shouye").forward(request, response);
-			}
+		}
 		
 		
 		

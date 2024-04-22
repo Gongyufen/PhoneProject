@@ -46,7 +46,7 @@ a{
 </style>
     <div id="daoh">
 				<ul id="da">
-					<li>个人信息
+					<li><a href="DengluServlet?grzx=1">个人信息</a> 
 						<ul class="xiao">
 							<li id="xgyhm">修改用户名</li>
 							<li id="xgmm">修改密码</li>
@@ -55,7 +55,7 @@ a{
 					</li>
 					<li><a href="../view/DindanServlet">我的订单</a></li>
 					<li>我的评论</li>
-					<li>我浏览过的商品</li>
+					<li><a href="../view/LljlServlet">我浏览过的商品</a></li>
 					<li><a href="../view/SelectDizServlet">收货地址管理</a> </li>
 				</ul>
 	</div>
