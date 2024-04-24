@@ -17,14 +17,6 @@
 		<jsp:param name="name" value="${list.get(0).getZ_uname()}" />
 	</jsp:include>
 		
-<!-- 		<div id="daohanglan">
-			<div class="dhl">
-				<div class="tupian"><img src="../img/图标.png" /></div>
-				<div class="ziti">我的购物车</div>
-			</div>
-			
-		</div>
-			 -->
 		
 		<div id="mingcheng">
 			<div id="mc">
@@ -55,14 +47,14 @@
 						<li style="text-align: center;"><span style="display: none;">${mid.c_rid }</span>¥ ${mid.c_rsprice }</li>
 						<li style="text-align: center;">
 							<div class="shu">
-								<button class="zuo">-</button>
+								<a class="zuo">-</a>
 								<input type="text" id="zhi" value="${mid.c_ssl}" />
 								<span class="sid" style="display: none">${mid.c_sid }</span>
-								<button  class="you">+</button>
+								<a  class="you">+</a>
 							</div>
 						</li>
 						<li style="text-align: center;color: #ca151e;font-weight: 700;" class="xj"> ${mid.c_ssl*mid.c_rsprice }</li>
-						<li style="text-align: center;color: #a4a4a4;"><span class="sid" style="">${mid.c_sid }</span> <a class="sc">删除</a></li>
+						<li style="text-align: center;color: #a4a4a4;"><span class="sid" style="display: none">${mid.c_sid }</span> <a class="sc">删除</a></li>
 					</ul>
 				</div>
 			</div>

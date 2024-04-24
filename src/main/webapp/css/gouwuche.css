@@ -1,29 +1,4 @@
 @charset "UTF-8";
-#daohanglan{
-	margin: 0 auto;
-	height: 70px;
-	background-color: white;
-}
-#daohanglan .dhl{
-	margin: 0 auto;
-	width: 1230px;
-	background-color: white;
-}
-#daohanglan .tupian{
-	width: 100px;
-	height: 70px;
-	float: left;
-}
-.tupian img{
-	width: 100%;
-}
-#daohanglan .ziti{
-	height: 70px;
-	float: left;
-	margin-left: 50px;
-	font-size: 25px;
-	line-height: 70px;
-}
 #mingcheng{
 	margin: 0 auto;
 	margin-top: 20px;
