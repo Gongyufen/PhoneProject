@@ -28,9 +28,11 @@ public class QrDindanServlet extends HttpServlet {
 		int mid=Integer.parseInt(request.getParameter("mid"));
 		int rid=Integer.parseInt(request.getParameter("rid"));
 		int num=Integer.parseInt(request.getParameter("num"));
+		int ysid=Integer.parseInt(request.getParameter("ysid"));
+		int ncid=Integer.parseInt(request.getParameter("ncid"));
 		int uid=Integer.parseInt(request.getSession().getAttribute("id").toString());
 		indentDAO.xzDd(uid);
-		indentDAO.insertDdXq(uid,rid,cclassDAO.select(mid).get(0).getCategory(),num,jiageDAO.jiaGe(rid).get(0).getC_rsprice()*num,mid);
+		indentDAO.insertDdXq(uid,rid,ysid,ncid,cclassDAO.select(mid).get(0).getCategory(),num,jiageDAO.jiaGe(rid).get(0).getC_rsprice()*num,mid);
 		request.setAttribute("addDd",indentDAO.selectddxq(indentDAO.maxIid(uid).get(0)));
 		request.setAttribute("dz",zaddressDAO.select(uid));
 		request.getRequestDispatcher("qrdind.jsp").forward(request, response);

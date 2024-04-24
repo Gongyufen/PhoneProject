@@ -197,7 +197,9 @@
 								var xhid=$(".xhid").text();
 								var jgid=$("#jgid").text();
 								var num=$("#zhi").text();
-								window.location.href="QrDindanServlet?mid="+xhid+"&rid="+jgid+"&num="+num;
+								var ysid=$("#ysxuanz").find(".ysid").text();
+								var ncid=$("#xuanznc").find(".ncid").text();
+								window.location.href="QrDindanServlet?mid="+xhid+"&rid="+jgid+"&num="+num+"&ysid="+ysid+"&ncid="+ncid;
 							})
 						})
 					</script>
