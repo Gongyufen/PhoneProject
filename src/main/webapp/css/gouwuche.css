@@ -126,6 +126,9 @@
 	border: 1px solid #a6a6a6;
 	border-right: none;
 }
+#shangpin .zuo:hover{
+	cursor: pointer;
+}
 #shangpin .you{
 	width: 24px;
 	height: 20px;
@@ -133,6 +136,12 @@
 	float: left;
 	border: 1px solid #a6a6a6;
 	border-left: none;
+}
+#shangpin .you:hover{
+	cursor: pointer;
+}
+#shangpin .sc:hover{
+	cursor: pointer;
 }
 #shangpin .shu input{
 	outline: none;

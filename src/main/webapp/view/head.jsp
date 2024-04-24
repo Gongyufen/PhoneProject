@@ -38,7 +38,7 @@
 						<li>|</li>
 						<li><a href="">手机版</a></li>
 						<li>|</li>
-						<li><a href="">购物车</a></li>
+						<li><a href="GouwucheServlet">购物车</a></li>
 					</ul>
 				</div>
 			</div>

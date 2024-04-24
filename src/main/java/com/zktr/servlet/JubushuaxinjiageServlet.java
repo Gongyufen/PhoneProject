@@ -28,7 +28,6 @@ public class JubushuaxinjiageServlet extends HttpServlet {
 		int ncid=Integer.parseInt(request.getParameter("ncid"));
 		List<Jiage> list=jiageDAO.guige(ysid,ncid);
 		String array=JSONArray.toJSONString(list);
-		System.out.println(array);
 		response.setContentType("text/html;charset=utf-8");
 		response.getWriter().print(array);
 	}

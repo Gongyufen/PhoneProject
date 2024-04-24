@@ -7,6 +7,17 @@ package com.zktr.entity;
 */
 
 public class Gouwuche {
+	private int c_sid;//购物车id
+	
+	public int getC_sid() {
+		return c_sid;
+	}
+
+
+
+	public void setC_sid(int c_sid) {
+		this.c_sid = c_sid;
+	}
 	private String c_groute;//图片
 	private String c_mname;//商品名称
 	private String c_ysgtails;//规格值颜色
@@ -16,13 +27,37 @@ public class Gouwuche {
 	private int c_mid;//型号id
 	private int c_rid;//价格id
 	
-	public Gouwuche(int c_mid, String c_groute, String c_mname) {
+	private int c_ssl;//数量
+	
+	
+	
+	
+	public Gouwuche(String c_groute, String c_mname, String c_ysgtails, double c_rsprice, int c_mid, int c_rid,
+			int c_ssl) {
 		super();
-		this.c_mid = c_mid;
 		this.c_groute = c_groute;
 		this.c_mname = c_mname;
+		this.c_ysgtails = c_ysgtails;
+		this.c_rsprice = c_rsprice;
+		this.c_mid = c_mid;
+		this.c_rid = c_rid;
+		this.c_ssl = c_ssl;
 	}
-	
+
+
+
+	public int getC_ssl() {
+		return c_ssl;
+	}
+
+
+
+	public void setC_ssl(int c_ssl) {
+		this.c_ssl = c_ssl;
+	}
+
+
+
 	public int getC_rid() {
 		return c_rid;
 	}

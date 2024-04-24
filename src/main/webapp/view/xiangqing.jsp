@@ -154,10 +154,12 @@
     					</script>
     					<!-- 加减功能2 -->
     					
+    					
+    					
+    					
 					</div>
 						<button class="gmtwo">加入购物车</button>
 						<span class="xhid" style="display: none"><%=request.getParameter("mid") %></span>
-						
 						<script type="text/javascript" src="../jquery-3.5.1.min.js"></script>
 						<script>
 							$(function() {
@@ -165,11 +167,28 @@
 									var xhid=$(".xhid").text();
 									var jgid=$("#jgid").text();
 									var did=$(".did").text();
+									var zhi=$("#zhi").text();
 									var ysid=$("#ysxuanz").find(".ysid").text();
 									var ncid=$("#xuanznc").find(".ncid").text();
-									window.location.href="GouwucheServlet?mid="+xhid+"&rid="+jgid+"&ysid="+ysid+"&ncid="+ncid+"&did="+did;
+									window.location.href="GouwucheServlet?mid="+xhid+"&rid="+jgid+"&ysid="+ysid+"&ncid="+ncid+"&did="+did+"&zhi="+zhi;
 								})
 							})
+						</script>
+						
+						<script>
+							function multiplyValues() {
+							  // 获取第一个div的值
+							  var firstDivValue = parseInt(document.getElementById("firstDiv").innerHTML);
+							
+							  // 获取第二个div的值
+							  var secondDivValue = parseInt(document.getElementById("secondDiv").innerHTML);
+							
+							  // 计算乘积
+							  var product = firstDivValue * secondDivValue;
+							
+							  // 将乘积放入第三个div中
+							  document.getElementById("thirdDiv").innerHTML = product;
+							}
 						</script>
 					<button class="gmthree">立即购买</button>
 					<script>

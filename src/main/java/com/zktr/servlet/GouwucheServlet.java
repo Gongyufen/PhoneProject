@@ -16,17 +16,21 @@ import com.zktr.dao.GouwucheDAO;
 public class GouwucheServlet extends HttpServlet {
 		private GouwucheDAO gouwuche = new GouwucheDAO();
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		response.setCharacterEncoding("UTF-8");
-		int mid=Integer.parseInt(request.getParameter("mid"));
-		int ysid=Integer.parseInt(request.getParameter("ysid"));
-		int ncid=Integer.parseInt(request.getParameter("ncid"));
-		int rid=Integer.parseInt(request.getParameter("rid"));
-		int did=Integer.parseInt(request.getParameter("did"));
-		int uid=Integer.parseInt(request.getSession().getAttribute("id").toString());
-		request.setAttribute("mid", gouwuche.chaxun(mid,ysid,ncid));
-		gouwuche.gouwuchexinzeng(did, mid, rid, uid);
-		request.getRequestDispatcher("gouwuche.jsp").forward(request, response);
+			request.setCharacterEncoding("utf-8");
+			response.setCharacterEncoding("UTF-8");
+			int uid=Integer.parseInt(request.getSession().getAttribute("id").toString());
+			if(request.getParameter("mid")!=null) {
+				int mid=Integer.parseInt(request.getParameter("mid"));
+				int ysid=Integer.parseInt(request.getParameter("ysid"));
+				int ncid=Integer.parseInt(request.getParameter("ncid"));
+				int rid=Integer.parseInt(request.getParameter("rid"));
+				int did=Integer.parseInt(request.getParameter("did"));
+				int zhi=Integer.parseInt(request.getParameter("zhi"));
+				request.setAttribute("zhi",zhi);
+				gouwuche.gouwuchexinzeng(did, mid, ysid, ncid, rid, uid, zhi);
+			}
+			request.setAttribute("gwc", gouwuche.chaxun(uid));
+			request.getRequestDispatcher("gouwuche.jsp").forward(request, response);
 	}
 
 }
