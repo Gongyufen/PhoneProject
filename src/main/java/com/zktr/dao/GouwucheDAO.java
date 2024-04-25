@@ -47,7 +47,7 @@ public class GouwucheDAO extends BaseDAO{
 	//购物车：新增数据
 	public int gouwuchexinzeng(int c_did,int c_mid,int c_ysid,int c_ncid,int c_rid,int z_uid,int c_ssl) {
 		String sql = "INSERT INTO c_shopping VALUES(null,?,?,?,?,?,?,?)";
-		return this.execute(sql, c_did, c_mid,c_ysid,c_ncid,c_rid,z_uid,c_ssl);
+		return this.execute(sql, c_did, c_mid,c_rid,c_ysid,c_ncid,z_uid,c_ssl);
 	}
 	//购物车数量：根据加减改变小计
 	public int jiajian(int c_ssl,int c_sid) {

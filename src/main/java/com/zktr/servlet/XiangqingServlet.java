@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.zktr.dao.ProductDAO;
+import com.zktr.dao.ZcommentDAO;
 import com.zktr.dao.ZrecordDAO;
 
 /**
@@ -17,6 +18,7 @@ import com.zktr.dao.ZrecordDAO;
 public class XiangqingServlet extends HttpServlet {
 	private ProductDAO xiangqing = new ProductDAO();
 	private ZrecordDAO zrecordDAO=new ZrecordDAO();
+	private ZcommentDAO zcommentDAO=new ZcommentDAO();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("UTF-8");
@@ -27,8 +29,8 @@ public class XiangqingServlet extends HttpServlet {
 			int uid=Integer.parseInt(request.getSession().getAttribute("id").toString());
 			zrecordDAO.insert(uid,mid);
 		}
-	
 		
+		request.setAttribute("zcomment", zcommentDAO.selectmid(mid));
 		request.setAttribute("product", xiangqing.xiangqing(mid));
 		request.setAttribute("guige", xiangqing.xqguige(mid));
 		request.getRequestDispatcher("xiangqing.jsp").forward(request, response);

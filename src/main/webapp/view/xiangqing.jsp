@@ -46,7 +46,7 @@
 						<p>${ys.getC_aname() }</p>
 					</c:if>
 					
-					<div class="xuanzhe" id="ysxuanz" ><span class="ysid" style="display: none">${ys.getC_gid() }</span>${ys.getC_gtails() }</div>
+					<div class="xuanzhe" id="ysxuanz" ><span class="ysid" style="display:none" >${ys.getC_gid() }</span>${ys.getC_gtails() }</div>
 				</c:forEach>
 					
 				</div>
@@ -213,53 +213,29 @@
 		<br />
 		<hr />
 		
+		<c:forEach items="${zcomment }" var="z">
 		<div id="pinglun">
 			<div id="yonghu">
-				<div id="touxiang">
-					
+				<div id="txmc">
+					<div id="touxiang">${z.z_avatar }</div>
+					<div id="yonghuming">${z.z_uname }</div>
 				</div>
-				<div id="neirong">
-					
-				</div>
-			</div>
-			<div id="yonghu">
-				<div id="touxiang">
-					
-				</div>
-				<div id="neirong">
-					
-				</div>
-			</div>
-			<div id="yonghu">
-				<div id="touxiang">
-					
-				</div>
-				<div id="neirong">
-					
-				</div>
-			</div>
-			<div id="yonghu">
-				<div id="touxiang">
-					
-				</div>
-				<div id="neirong">
-					
-				</div>
-			</div>
-			<div id="yonghu">
-				<div id="touxiang">
-					
-				</div>
-				<div id="neirong">
-					
-				</div>
-			</div>
-		</div>
-		
-		<div id="fenye">
-			<div id="neirong">
 				
+				<div id="neirong">
+					<div class="jdsj">
+						<span>满意度：</span>
+						<div class="manyidu">
+							<div class="manyidunei" style="	height: 20px; width: ${z.evaluation/5*100}%"></div>
+						</div>
+						<span>时间：</span>
+						<div class="shijian">${z.z_time }</div>
+					</div>
+					<div class="wenzi">
+						${z.txt }
+					</div>
+				</div>
 			</div>
 		</div>
+		</c:forEach>	
 </body>
 </html>
