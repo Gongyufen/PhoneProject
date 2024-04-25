@@ -10,18 +10,17 @@ import javax.servlet.http.HttpServletResponse;
 import com.zktr.dao.ZcommentDAO;
 
 /**
- * Servlet implementation class CjakanPlServlet
+ * Servlet implementation class DeleteplServlet
  */
-@WebServlet("/view/CjakanPlServlet")
-public class CjakanPlServlet extends HttpServlet {
+@WebServlet("/view/DeleteplServlet")
+public class DeleteplServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("UTF-8");
 		ZcommentDAO zcommentDAO=new ZcommentDAO();
-		int uid=Integer.parseInt(request.getSession().getAttribute("id").toString());
-		request.setAttribute("pllst",zcommentDAO.selectuid(uid));
-		request.getRequestDispatcher("grzx/pinglun.jsp").forward(request, response);
+		int cid=Integer.parseInt(request.getParameter("cid"));
+		zcommentDAO.delete(cid);
+		request.getRequestDispatcher("CjakanPlServlet").forward(request, response);
 	}
-
 
 }

@@ -12,7 +12,6 @@
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
 <script src="https://cdn.bootcss.com/distpicker/2.0.1/distpicker.js"></script>
 <body>
-		
 	<div  class="gouwu">
 			<!-- 头部 -->
 	<jsp:include page="head.jsp">
@@ -49,7 +48,7 @@
 							
 							
 					</div>
-					
+					<div class="iid">${addDd.get(0).get(0).getZ_iid() }</div>
 					<c:forEach items="${addDd}" var="dd">
 					<div class="section">
 						<div class="head-deisli">商品</div>
@@ -57,6 +56,7 @@
 						<div class="goods-list">
 							<c:forEach items="${dd}" var="xq">
 								<div class="goods-itme">
+								
 									<div class="goods-img">
 										<img  src="../img/${xq.getTup()}" style="width: 30px;height: 30px;"/>
 									</div>
@@ -130,12 +130,16 @@ $(function () {
 						<div class="hendle">
 							<div class="operating">
 								<a class="btn btn-primary">立即下单</a>
-								<a href="javascript:void(0)" class="btn btn-return">取消订单</a>
+								<a href="javascript:void(0)" class="qx btn btn-return">取消订单</a>
 							</div>
 						</div>
 					</div>
 					<script type="text/javascript">
 						$(function() {
+							$(".qx").click(function() {
+								var id=$(".iid").text();
+								window.location.href="DindanFukServlet?iid="+id+"&cz=取消";
+							})
 							$(".btn-primary").click(function () {
 								
 								var shname=$("#ok").find("#shname").text();

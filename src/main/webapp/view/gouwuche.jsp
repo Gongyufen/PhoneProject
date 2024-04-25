@@ -97,6 +97,15 @@
 						$(this).css("color","#a6a6a6");
 					}
 				})
+				$(function() {
+					$("#js").click(function() {
+						var arr = [];
+						$('.one[type="checkbox"]:checked').each(function() {
+						    arr.push($(this).val());
+						});
+						window.location.href = "GwcDindServlet?arr=" + arr;
+					})
+				})
 			})
 		</script>
 		<div id="jiesuan">

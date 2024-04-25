@@ -30,7 +30,7 @@
 						</c:otherwise>   
 					</c:choose>
 						<li>|</li>
-						<li><a href="">我的订单</a></li>
+						<li><a href="DindanServlet">我的订单</a></li>
 						<li>|</li>
 						<li><a href="">客服</a></li>
 						<li>|</li>

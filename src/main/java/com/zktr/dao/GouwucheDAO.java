@@ -3,9 +3,11 @@ package com.zktr.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import com.zktr.entity.Gouwuche;
+import com.zktr.entity.Gwc;
 import com.zktr.entity.Product;
 
 /**
@@ -15,6 +17,31 @@ import com.zktr.entity.Product;
 */
 
 public class GouwucheDAO extends BaseDAO{
+	//根据用户id删除数据
+	public int deleteuid(int sid) {
+		String sql="delete from c_shopping where c_sid=?";
+		return execute(sql,sid);
+	}
+	public List<Gwc> selectsid(String  sid) {
+		String sql="SELECT * FROM c_shopping\r\n"
+				+ "JOIN c_model ON c_model.`c_mid`=c_shopping.`c_mid`\r\n"
+				+ "JOIN c_class ON c_class.`c_cid`=c_model.`c_cid`\r\n"
+				+ "JOIN c_rprice ON c_rprice.`c_rid`=c_shopping.`c_rid`"
+				+ "WHERE c_shopping.c_sid=?";
+		return query(sql, new Mapper<Gwc>() {
+			@Override
+			public List map(ResultSet rs) throws SQLException {
+				List<Gwc> list=new ArrayList();;
+				while (rs.next()) {
+					Gwc gwc=new Gwc(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getInt(6),rs.getInt(7),rs.getInt(8));
+					gwc.setZj(rs.getDouble(15)*rs.getInt(7));
+					gwc.setXh(rs.getString(13));
+					list.add(gwc);
+				}
+				return list;
+			}
+		},sid);
+	}
 	//购物车：查询图片与名称
 	public List<Gouwuche> chaxun(int uid){
 		String sql = "SELECT * FROM c_shopping\r\n"
@@ -47,7 +74,7 @@ public class GouwucheDAO extends BaseDAO{
 	//购物车：新增数据
 	public int gouwuchexinzeng(int c_did,int c_mid,int c_ysid,int c_ncid,int c_rid,int z_uid,int c_ssl) {
 		String sql = "INSERT INTO c_shopping VALUES(null,?,?,?,?,?,?,?)";
-		return this.execute(sql, c_did, c_mid,c_ysid,c_ncid,c_rid,z_uid,c_ssl);
+		return this.execute(sql, c_did, c_mid,c_rid,c_ysid,c_ncid,z_uid,c_ssl);
 	}
 	//购物车数量：根据加减改变小计
 	public int jiajian(int c_ssl,int c_sid) {

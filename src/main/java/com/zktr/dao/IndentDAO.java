@@ -10,7 +10,7 @@ import com.zktr.entity.Indent;
 public class IndentDAO extends BaseDAO{
 	//查询对应用户的订单
 	public List<List<Indent>> selectdd(int uid ,int ks,int tiao){
-		String sql="select * from z_indent where z_uid=? LIMIT ?,?";
+		String sql="select * from z_indent where z_uid=?  ORDER BY z_date DESC LIMIT ?,?";
 		return query(sql,new Mapper<List<Indent>>() {
 		@Override
 		public List<List<Indent>> map(ResultSet rs) throws SQLException {
@@ -61,7 +61,7 @@ public class IndentDAO extends BaseDAO{
 	}
 	//根据订单状态查询
 	public List<List<Indent>> selectdd(int uid,String z_status,int ks,int tiao){
-		String sql="select * from z_indent where z_uid=? and z_status=? LIMIT ?,?";
+		String sql="select * from z_indent where z_uid=? and z_status=?  ORDER BY z_date DESC LIMIT ?,?";
 		return query(sql,new Mapper<List<Indent>>() {
 		@Override
 		public List<List<Indent>> map(ResultSet rs) throws SQLException {
@@ -73,25 +73,23 @@ public class IndentDAO extends BaseDAO{
 		}},uid,z_status,ks,tiao);
 	}
 	public List<Indent> selectxq(int id){
-		String sql="SELECT * FROM z_indent_details "
-				+ "JOIN z_indent ON z_indent_details.z_iid=z_indent.z_iid "
-				+ "JOIN c_fombination ON c_fombination.c_rid=z_indent_details.c_rid "
-				+ "JOIN c_rprice ON c_rprice.c_rid=z_indent_details.c_rid  "
-				+ "JOIN c_getails ON c_getails.c_gid=z_indent_details.z_ysid OR  c_getails.c_gid=z_indent_details.z_ncid "
-				+ "JOIN c_model ON z_indent_details.c_mid=c_model.c_mid "
-				+ "WHERE z_indent.z_iid=?";
+		String sql="SELECT * FROM z_indent_details \r\n"
+				+ "JOIN z_indent ON z_indent_details.z_iid=z_indent.z_iid\r\n"
+				+ "JOIN c_rprice ON c_rprice.c_rid=z_indent_details.c_rid  \r\n"
+				+ "JOIN c_getails ON c_getails.c_gid=z_indent_details.z_ysid OR  c_getails.c_gid=z_indent_details.z_ncid \r\n"
+				+ "JOIN c_model ON z_indent_details.c_mid=c_model.c_mid \r\n"
+				+ "WHERE z_indent_details.z_iid=?";
 		return query(sql,new Mapper<Indent>() {
-		@Override
-		public List<Indent> map(ResultSet rs) throws SQLException {
-			List<Indent> list=new ArrayList<>();
-			if(rs.next()) {
-				Indent indent=new Indent(rs.getInt("z_indent_details.z_iid"),
-										rs.getString("c_mname"),
-										rs.getDouble("c_rprice.c_rsprice"),
-										rs.getInt("z_number"),
-										rs.getString("z_status"),
-										rs.getDouble("z_indent_details.z_price")
-										);
+			public List<Indent> map(ResultSet rs) throws SQLException {
+				List<Indent> list=new ArrayList<>();
+				while(rs.next()) {
+					Indent indent=new Indent(rs.getInt("z_indent_details.z_iid"),
+											rs.getString("c_mname"),
+											rs.getDouble("c_rprice.c_rsprice"),
+											rs.getInt("z_number"),
+											rs.getString("z_status"),
+											rs.getDouble("z_indent_details.z_price")
+											);
 				indent.setColor(rs.getString("c_gtails"));
 				indent.setTup(rs.getString("c_groute"));
 				indent.setDindanzojia(rs.getDouble("z_indent.z_price"));
@@ -101,6 +99,7 @@ public class IndentDAO extends BaseDAO{
 				indent.setDid(rs.getInt("z_did"));
 				rs.next();
 				indent.setNc(rs.getString("c_gtails"));
+				
 				list.add(indent);
 			}
 			return list;
@@ -157,6 +156,20 @@ public class IndentDAO extends BaseDAO{
 	public int insertDdXq(int uid,int rid,int ysid,int ncid,String category,int numder,double price,int mid) {
 		String sql="insert into z_indent_details value(null,?,?,?,?,?,?,?,?)";
 		return execute(sql,maxIid(uid).get(0),rid,ysid,ncid,category,numder,price,mid);
+	}
+	//根据订单详情id查订单id
+	public List<Integer> getIid(int did){
+		String sql="select z_iid from z_indent_details where z_did=?";
+		return query(sql,new Mapper<Integer>() {
+			@Override
+			public List<Integer> map(ResultSet rs) throws SQLException {
+				List<Integer> list=new ArrayList<>();
+				while(rs.next()) {
+					list.add(rs.getInt("z_iid"));
+				}
+				return list;
+			}
+		},did);
 	}
 	
 }

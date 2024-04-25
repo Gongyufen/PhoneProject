@@ -1,6 +1,7 @@
 package com.zktr.entity;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 public class Zcomment {
 	private int z_cid;
@@ -9,6 +10,16 @@ public class Zcomment {
 	private int evaluation;
 	private int uid;
 	private int did;
+	
+	private int iid;
+	
+	
+	public int getIid() {
+		return iid;
+	}
+	public void setIid(int iid) {
+		this.iid = iid;
+	}
 	public int getZ_cid() {
 		return z_cid;
 	}
@@ -48,8 +59,10 @@ public class Zcomment {
 	public void setDid(int did) {
 		this.did = did;
 	}
-	public Timestamp getZ_time() {
-		return z_time;
+	public String getZ_time() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String formatted_time = sdf.format(z_time);
+		return formatted_time;
 	}
 	public void setZ_time(Timestamp z_time) {
 		this.z_time = z_time;

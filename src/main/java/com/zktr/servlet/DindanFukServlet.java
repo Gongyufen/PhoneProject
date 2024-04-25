@@ -20,7 +20,7 @@ public class DindanFukServlet extends HttpServlet {
 		IndentDAO indentDAO=new IndentDAO();
 		int uid=Integer.parseInt(request.getSession().getAttribute("id").toString());
 		System.out.println(uid);
-		int id=Integer.parseInt( request.getParameter("iid"));
+		int id=Integer.parseInt(request.getParameter("iid"));
 		if(request.getParameter("cz").equals("确认收货")) {
 			indentDAO.ddOk(id);
 		}else if(request.getParameter("cz").equals("付款")){

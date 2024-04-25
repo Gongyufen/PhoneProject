@@ -54,7 +54,7 @@ a{
 						</ul>
 					</li>
 					<li><a href="../view/DindanServlet">我的订单</a></li>
-					<li>我的评论</li>
+					<li><a href="../view/CjakanPlServlet">我的评论</a></li>
 					<li><a href="../view/LljlServlet">我浏览过的商品</a></li>
 					<li><a href="../view/SelectDizServlet">收货地址管理</a> </li>
 				</ul>

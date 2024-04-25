@@ -30,18 +30,24 @@ public class DengluServlet extends HttpServlet {
 					String pas=request.getParameter("pas");
 					UeasDAO usersdao = new UeasDAO();
 					HttpSession session=request.getSession();
-					PrintWriter out = response.getWriter();
+				        // 设置Session属性有效时限为30分钟（单位：秒）
+				    session.setMaxInactiveInterval(30 * 60);
+
 					if (usersdao.select(name, pas).size()!=0) {
 						session.setAttribute("list",usersdao.select(name,pas));
-						System.out.println(usersdao.select(name,pas));
 						session.setAttribute("id",usersdao.select(name,pas).get(0).getZ_uid());
+						if(usersdao.select(name, pas).get(0).getZ_state()==1) {
+							request.getRequestDispatcher("shouye").forward(request, response);
+						}else {
+							request.getRequestDispatcher("sy.jsp").forward(request, response);
+						}
 						
 					}else {
 						request.setAttribute("pd","登陆失败");
 						request.getRequestDispatcher("denglu.jsp").forward(request, response);
 					}
 				}
-				request.getRequestDispatcher("shouye").forward(request, response);
+				
 		}
 		
 		

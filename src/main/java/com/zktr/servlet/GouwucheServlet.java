@@ -22,7 +22,7 @@ public class GouwucheServlet extends HttpServlet {
 			if(request.getParameter("mid")!=null) {
 				int mid=Integer.parseInt(request.getParameter("mid"));
 				int ysid=Integer.parseInt(request.getParameter("ysid"));
-				int ncid=Integer.parseInt(request.getParameter("ncid"));
+				int ncid=Integer.parseInt(request.getParameter("ncid")); 
 				int rid=Integer.parseInt(request.getParameter("rid"));
 				int did=Integer.parseInt(request.getParameter("did"));
 				int zhi=Integer.parseInt(request.getParameter("zhi"));

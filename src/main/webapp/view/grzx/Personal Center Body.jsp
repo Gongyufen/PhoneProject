@@ -216,7 +216,7 @@
 					</div>
 					
 				</div>
-				<button style="float: right;" class="an" id="tui">退出登录</button>
+				<a style="float: right;" href="denglu.jsp" class="an" id="tui">退出登录</a>
 			</div>
 			<div id="bodybig">
 				

@@ -10,8 +10,14 @@ import com.zktr.entity.Product;
 public class ZrecordDAO extends BaseDAO{
 	//新增浏览记录
 	public int insert(int uid,int mid) {
-		String sql="insert into z_record value(null,?,?,now())";
-		return execute(sql,uid,mid);
+		if(quc(uid,mid).size()!=0&&quc(uid,mid).get(0)) {
+			String sql="update z_record set z_rdate=now() where z_uid=? and c_mid=? ";
+			return execute(sql,uid,mid);
+		}else {
+			String sql="insert into z_record value(null,?,?,now())";
+			return execute(sql,uid,mid);
+		}
+		
 	}
 	//根据用户id查询浏览记录
 	public List<List<Product>> select(int uid){
@@ -28,5 +34,17 @@ public class ZrecordDAO extends BaseDAO{
 			}
 		},uid);
 	}
-	
+	public List<Boolean> quc(int uid,int mid){
+		String sql="select * from z_record where z_uid=? and c_mid=?";
+		return query(sql,new Mapper<Boolean>() {
+			@Override
+			public List<Boolean> map(ResultSet rs) throws SQLException {
+				List<Boolean> list=new ArrayList();
+				if(rs.next()) {
+					list.add(true);
+				}
+				return list;
+			}
+		},uid,mid);
+	}
 }
