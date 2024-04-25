@@ -37,7 +37,7 @@ public class ProductDAO extends BaseDAO{
 	}
 	//搜索结果：根据类别名查询商品信息
 		public List<Product> leibieming(String category){
-			String sql = "SELECT c_getails.c_groute, c_model.c_mname, c_details.c_describe, c_rprice.c_rsprice\r\n"
+			String sql = "SELECT c_getails.c_groute, c_model.c_mname, c_details.c_describe, c_rprice.c_rsprice,c_model.c_mid\r\n"
 					+ "FROM c_getails\r\n"
 					+ "JOIN c_details ON c_getails.c_gid = c_details.c_did\r\n"
 					+ "JOIN c_model ON c_details.c_mid = c_model.c_mid\r\n"
@@ -50,6 +50,7 @@ public class ProductDAO extends BaseDAO{
 					List<Product> list = new ArrayList<>();
 					while(rs.next()) {
 						Product product = new Product(rs.getString(1),rs.getString(2),rs.getString(3),rs.getDouble(4));
+						product.setC_mid(rs.getInt(5));
 						list.add(product);
 					}
 					return list;
