@@ -38,7 +38,7 @@
 				<div id="mingcheng">
 					<p class="mc">${product.get(0).getC_mname() }</p>
 					<p class="ms">${product.get(0).getC_describe() }</p>
-					<p style="color: #d42342;font-size: 30px;">￥<span class="jg">${product.get(0).getC_rsprice() }</span> <span id="jgid" style="display: none">${product.get(0).getC_rid()}</span> </p>
+					<p style="color: #d42342;font-size: 30px;">￥<span class="jg"></span> <span id="jgid" style="display: none"></span> </p>
 				</div>
 				<div class="yanse">
 				<c:forEach items="${guige.get(0)}" var="ys" varStatus="yans">
@@ -95,6 +95,13 @@
 				
 				
 					$(function() {
+						var ysid=$("#ysxuanz").find(".ysid").text();
+						
+						var ncid=$("#xuanznc").find(".ncid").text();
+						$.getJSON("JubushuaxinjiageServlet?ysid="+ysid+"&ncid="+ncid,{},function(v){
+							$(".jg").text(v[0].c_rsprice);
+							$("#jgid").text(v[0].c_rid);
+						})
 						$(".xuanxiang").click(function() {
 							$(".xuanxiang").attr("id","no");
 							$(this).attr("id","xuanznc");

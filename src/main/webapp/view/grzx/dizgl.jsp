@@ -19,7 +19,7 @@
 #name{
 	margin-right: 130px;
 }
-input{
+#body input{
 	width: 230px;
 	margin-bottom: 30px;
 	padding: 10px 20px;
