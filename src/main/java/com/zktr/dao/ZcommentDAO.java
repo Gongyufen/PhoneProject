@@ -22,18 +22,18 @@ public class ZcommentDAO extends BaseDAO{
 	
 	//商品详情中的评论:查询显示在商品详情中的评论信息及满意度
 		public List<Zcomment> selectmid(int mid){
-			String sql="\r\n"
-					+ "SELECT * FROM z_comment\r\n"
+			String sql="SELECT * FROM z_comment\r\n"
 					+ "JOIN z_indent_details ON z_indent_details.`z_did`=z_comment.`z_did`\r\n"
 					+ "JOIN z_indent ON z_indent.`z_iid`=z_indent_details.`z_iid`\r\n"
 					+ "JOIN z_ueas ON z_ueas.`z_uid`=z_indent.`z_uid`\r\n"
-					+ "WHERE z_indent_details.`c_mid`=?";
+					+ "WHERE z_indent_details.`c_mid`=? "
+					+ "ORDER BY z_time DESC";
 			return query(sql,new Mapper<Zcomment>() {
 				@Override
 				public List<Zcomment> map(ResultSet rs) throws SQLException {
 					List<Zcomment> list=new ArrayList();
 					while(rs.next()) {
-						Zcomment zcomment=new Zcomment(rs.getString(5),rs.getTimestamp(4),rs.getInt(3),rs.getString(2),rs.getString(1));
+						Zcomment zcomment=new Zcomment(rs.getString(2),rs.getTimestamp(3),rs.getInt(4),rs.getString("z_uname"),rs.getString("z_avatar"));
 						list.add(zcomment);
 					}
 					return list;

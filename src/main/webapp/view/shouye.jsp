@@ -226,7 +226,7 @@
 			<c:forEach items="${product[index.index]}" var="p">
 				<div id="shangpin" class="shangpin" as = '${p}'>
 					<div class="img">
-						<img style="width: 100%; height: 100%;" src="../img/1.1千山绿.png" />
+						<img style="width: 100%; height: 100%;" src="../img/${p.c_groute }" />
 					</div>
 					<div class="zi">
 					<span class="mid" style="display: none;">${p.getC_mid() }</span>

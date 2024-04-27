@@ -27,7 +27,9 @@ public class DindanServlet extends HttpServlet {
 			 curpage=Integer.parseInt(request.getParameter("curpage"));
 			}
 		IndentDAO indentDAO=new IndentDAO();
+		String where="";
 		if(request.getParameter("zt")!=null) {
+			where="zt="+request.getParameter("zt");
 			request.setAttribute("total",indentDAO.totel(id,request.getParameter("zt")).get(0));
 			request.setAttribute("ddlist",indentDAO.selectdd(id,request.getParameter("zt"),((curpage-1)*pagesize),pagesize));
 		}else {
@@ -36,7 +38,7 @@ public class DindanServlet extends HttpServlet {
 		}
 			
 			
-			
+		request.setAttribute("where",where);
 			request.setAttribute("pagesize",pagesize);
 			request.setAttribute("curpage",curpage);
 			

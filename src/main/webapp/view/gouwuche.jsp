@@ -63,11 +63,18 @@
 		<script>
 			$(function () {
 			 	var totalPrice = 0;
-   				$(".xj").each(function(item) {
-     				var carJg =$(this).text() ;
-       				totalPrice += parseInt(carJg); // 累加到总价上
-   				});
-				$("#zj").text(totalPrice)
+   				$(".one").click(function() {
+   					var zj=0;
+					var num=0;
+   					$(".one[type='checkbox']:checked").each(function() {
+   					    var row = $(this).parent();
+   					    var value = row.find(".xj").text();
+   					 	zj+= parseInt(value);
+   					 	num++;
+   					});
+   					$("#shul").text(num)
+   					$("#zj").text(zj)
+				})
    				$(".sc").click(function() {
 					var sid=$(this).parent().find(".sid").text();
 					window.location.href="DeleteGwcServlet?sid="+sid;
@@ -105,6 +112,13 @@
 						});
 						window.location.href = "GwcDindServlet?arr=" + arr;
 					})
+					$("#sc").click(function(){
+						var arr = [];
+						$('.one[type="checkbox"]:checked').each(function() {
+						    arr.push($(this).val());
+						});
+						window.location.href = "QuanxuanshanchuServlet?arr=" + arr;
+					})
 				})
 			})
 		</script>
@@ -114,7 +128,7 @@
 					<input type="checkbox" id="qx" />
 					<div class="ziti">全选</div>
 				</label>
-				<div class="sc"><a href="">删除</a></div>
+				<div style="font-size: 12px;line-height: 60px;	float: left;margin-left: 20px;"><a id="sc">删除</a></div>
 			</div>
 				<a id="js">立即结算</a>
 			<div id="jilu">
@@ -122,7 +136,7 @@
 					<label>总计：</label>
 					￥<span id="zj">&nbsp;0.00</span>
 				</p>
-				<div class="xz">已选择<em>0</em>件商品</div>
+				<div class="xz">已选择<em id="shul">0</em>件商品</div>
 			</div>
 		</div>
 		
@@ -134,15 +148,39 @@
 						$(this).prop("checked",$(".onecheck").prop("checked"));
 					})
 					$("#qx").prop("checked",$(this).prop("checked"));
+					
+					var zj=0;
+					var num=0;
+   					$(".one[type='checkbox']:checked").each(function() {
+   					    var row = $(this).parent();
+   					    var value = row.find(".xj").text();
+   					 	zj+= parseInt(value);
+   					 	num++;
+   					});
+   					$("#shul").text(num)
+   					$("#zj").text(zj)
+					
 				})
 				
 				$("#qx").click(function() {
-					
 					$(".one").each(function() {
 						$(this).prop("checked",$("#qx").prop("checked"));
 					})
 					$(".onecheck").prop("checked",$(this).prop("checked"));
+					var zj=0;
+					var num=0;
+   					$(".one[type='checkbox']:checked").each(function() {
+   					    var row = $(this).parent();
+   					    var value = row.find(".xj").text();
+   					 	zj+= parseInt(value);
+   					 	num++;
+   					});
+   					$("#shul").text(num)
+   					$("#zj").text(zj)
+					
 				})
+				
+				
 			})
 			
 			

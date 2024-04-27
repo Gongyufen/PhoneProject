@@ -131,6 +131,7 @@ public class IndentDAO extends BaseDAO{
 	//新增订单
 	public int xzDd(int uid) {
 		String sql="insert into z_indent value(null,?,null,null,'待付款',null,null,null)";
+		System.out.println(1);
 		return execute(sql,uid);
 	}
 	//确认订单

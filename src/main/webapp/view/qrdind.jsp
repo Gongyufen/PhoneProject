@@ -48,7 +48,7 @@
 							
 							
 					</div>
-					<div class="iid">${addDd.get(0).get(0).getZ_iid() }</div>
+					<div class="iid" style="display: none;">${addDd.get(0).get(0).getZ_iid() }</div>
 					<c:forEach items="${addDd}" var="dd">
 					<div class="section">
 						<div class="head-deisli">商品</div>
@@ -141,7 +141,6 @@ $(function () {
 								window.location.href="DindanFukServlet?iid="+id+"&cz=取消";
 							})
 							$(".btn-primary").click(function () {
-								
 								var shname=$("#ok").find("#shname").text();
 								var shphone=$("#ok").find("#shphone").text();
 								var shaddress=$("#ok").find("#shaddress").text();

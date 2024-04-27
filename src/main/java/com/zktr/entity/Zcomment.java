@@ -11,20 +11,29 @@ public class Zcomment {
 	private int uid;
 	private int did;
 
-	
+	private String z_uname;//用户名
+	private String z_avatar;//头像
 	private int iid;
 	
 	
+	public String getZ_uname() {
+		return z_uname;
+	}
+	public void setZ_uname(String z_uname) {
+		this.z_uname = z_uname;
+	}
+	public String getZ_avatar() {
+		return z_avatar;
+	}
+	public void setZ_avatar(String z_avatar) {
+		this.z_avatar = z_avatar;
+	}
 	public int getIid() {
 		return iid;
 	}
 	public void setIid(int iid) {
 		this.iid = iid;
 	}
-
-	private String z_uname;//用户名
-	private String z_avatar;//头像
-
 	public int getZ_cid() {
 		return z_cid;
 	}
