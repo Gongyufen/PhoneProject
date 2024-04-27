@@ -98,22 +98,26 @@
             你的性别：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" value="男" name="sex" class="cbox">男&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" value="女" class="cbox" name="sex">女
             <button type="submit" id="">注册</button>
             <script type="text/javascript">
-            	$(function() {
-            		$("#zc").click(function() {
-						if($("#zc").val()==""&&$("#zc").val().length<8){
-							alert("请输入最少8位数的密码");
-							return false;
-						}
-						if($("#dhtxt").val().length!=11){
-							alert("请输入11位的手机号");
-							return false;
-						}
-						if($("#name").val()==""){
-							alert("用户名不能为空")；
-							return false;
-						}
-					})
+            $(function() {
+        		$("#zc").click(function() {
+					if($("#pas").val()==""&&$("#pas").val().length<8){
+						alert("请输入最少8位数的密码");
+						return false;
+					}
+					if($("#dhtxt").val().length!=11){
+						alert("请输入11位的手机号");
+						return false;
+					}
+					if($("#name").val()==""){
+						alert("用户名不能为空");
+						return false;
+					}
+					if($("input[type='radio']:checked").length <= 0){
+						alert("请选择性别");
+						return false;
+					}
 				})
+			})
             </script>
         </form>
         <div class="toggle-form">

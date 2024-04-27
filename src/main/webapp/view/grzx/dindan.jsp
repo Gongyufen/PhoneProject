@@ -56,6 +56,7 @@ td button {
 }
 #page a{
 	margin: 0 10px;
+	font-size: 14px;
 }
 </style>
  <link type="text/css" rel="stylesheet" href="../../css/head.css"/>
@@ -164,7 +165,7 @@ td button {
 							</script>
 							</table>
 							<div style="width: 470px;margin: 0 auto;" id="page">
-								<zdy:page controller="DindanServlet" pagesize="3" total="${total }" curpage="${curpage }"/>
+								<zdy:page controller="DindanServlet" pagesize="3" where="${where }" total="${total }" curpage="${curpage }"/>
 							</div>
 						</div>
 					</div>

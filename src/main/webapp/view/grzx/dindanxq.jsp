@@ -168,7 +168,7 @@ select{
 								<script type="text/javascript">
 									$(function() {
 										$(".pl").click(function() {
-											$(".did").val($("#did").html());
+											$(".did").val($(this).parent().parent().find("td:first-child").find("#did").text());
 											$("#bigbox-pl").css("display","block");
 										})
 									})
@@ -233,7 +233,7 @@ select{
 							<tr>
 								<td>订单总价:</td>
 								<td>
-									<span class="num">${ddxq.get(0).get(0).getZ_price() }</span>元
+									<span class="num">${ddxq.get(0).get(0).getDindanzojia() }</span>元
 								</td>
 							</tr>
 							
@@ -247,7 +247,7 @@ select{
 							<tr>
 								<td>应付金额:</td>
 								<td>
-									<span class="num" style="font-size: 30px;">${ddxq.get(0).get(0).getZ_price() }</span>元
+									<span class="num" style="font-size: 30px;">${ddxq.get(0).get(0).getDindanzojia() }</span>元
 								</td>
 							</tr>
 							
