@@ -109,6 +109,7 @@ td button {
 											<td rowspan="${fn:length(dd) }" class="id">${xq.getZ_iid() }</td>
 										</c:if>
 										<td style="line-height: 100px">
+										
 											<img alt="" style="float:left; width: 100px;height: 100px" src="../img/${xq.getTup() }">
 											${xq.getC_mname() }
 											${xq.getColor() }
